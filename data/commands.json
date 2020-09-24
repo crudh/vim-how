@@ -4,7 +4,7 @@
       "id": 1,
       "categoryId": 1,
       "title": "Move cursor left",
-      "tags": "cursor movement move left navigation h",
+      "tags": ["cursor", "movement", "move", "left", "navigation", "h"],
       "command": "h",
       "description": "Move cursor left"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "categoryId": 1,
       "title": "Move cursor right",
-      "tags": "cursor movement move right navigation l",
+      "tags": ["cursor", "movement", "move", "right", "navigation", ""],
       "command": "l",
       "description": "Move cursor right"
     }

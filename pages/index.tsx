@@ -7,7 +7,7 @@ type Command = {
   id: number;
   categoryId: number;
   title: string;
-  tags: string;
+  tags: string[];
   command: string;
   description: string;
 };
@@ -34,6 +34,27 @@ const grade = (
     })
     .reduce(sum, 0);
 
+const gradeList = (
+  searchTerms: string[],
+  sources: string[],
+  exactGrade: number,
+  partialGrade = 0
+): number =>
+  searchTerms
+    .map((term) =>
+      sources
+        .map((source) => {
+          const fixedSource = source.toLocaleLowerCase();
+
+          if (fixedSource === term) return exactGrade;
+          if (partialGrade === 0) return 0;
+
+          return fixedSource.includes(term) ? partialGrade : 0;
+        })
+        .reduce(sum, 0)
+    )
+    .reduce(sum, 0);
+
 const searchCommands = (searchInput: string): Command[] => {
   const search = searchInput.trim().toLocaleLowerCase();
   if (search === "") return [];
@@ -43,9 +64,8 @@ const searchCommands = (searchInput: string): Command[] => {
   return commandList
     .map((command) => ({
       points: [
-        grade(searchTerms, command.command, 10, 5),
-        // maybe this one should check tag by tag? add a new grade-function for that? change to an array in json then
-        grade(searchTerms, command.tags, 3, 3),
+        grade(searchTerms, command.command, 50, 10),
+        gradeList(searchTerms, command.tags, 3, 1),
       ].reduce(sum, 0),
       command,
     }))
