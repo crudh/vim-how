@@ -1,10 +1,21 @@
 module.exports = {
   future: {
     removeDeprecatedGapUtilities: true,
+    purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: [
+    "./pages/**/*.tsx",
+    "./pages/**/*.js",
+    "./components/**/*.tsx",
+    "./components/**/*.js",
+  ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        oswald: "Oswald",
+        roboto: "Roboto",
+      },
+    },
   },
   variants: {},
   plugins: [],
