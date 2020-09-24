@@ -12,8 +12,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        oswald: "Oswald",
-        roboto: "Roboto",
+        fira: ["Fira Code"],
       },
     },
   },

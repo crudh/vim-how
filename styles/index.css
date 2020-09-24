@@ -2,10 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-body {
-  font-family: "Oswald", sans-serif;
-}
-
 .main-grid {
   grid-template-rows: auto 1fr auto;
 }

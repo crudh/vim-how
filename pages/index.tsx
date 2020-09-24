@@ -79,10 +79,12 @@ const Command: React.FC<{
   command: string;
   description: string;
 }> = ({ title, command, description }) => (
-  <div>
-    <h3>{title}</h3>
-    <div>{command}</div>
-    <div>{description}</div>
+  <div className="grid grid-rows-3 grid-flow-col gap-4">
+    <div className="row-span-3 place-items-center">
+      <div className="text-6xl bg-white text-black pl-5 pr-5">{command}</div>
+    </div>
+    <div className="row-span-1 col-span-2">{title}</div>
+    <div className="row-span-2 col-span-2">{description}</div>
   </div>
 );
 
@@ -97,7 +99,7 @@ const AnimatedOpacity: React.FC<{
   });
 
   return (
-    <animated.div style={props} className="p-4 border-gray-500 border-2">
+    <animated.div style={props} className="p-4 border-gray-900 border-2">
       {children}
     </animated.div>
   );
@@ -115,7 +117,7 @@ const Home: React.FC = () => {
     <div>
       <div className="grid place-items-center pb-4">
         <input
-          className="border-gray-800 border-2 p-2"
+          className="p-2 bg-black border-white border-2 outline-none"
           placeholder="Search command"
           type="text"
           value={search}
