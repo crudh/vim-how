@@ -30,6 +30,11 @@ class MyDocument extends Document {
             type="image/png"
             href="/images/icons/icon-192x192.png"
           />
+          <link
+            rel="apple-touch-icon"
+            type="image/png"
+            href="/images/icons/icon-192x192.png"
+          />
         </Head>
         <body className="bg-black text-white font-fira">
           <Main />

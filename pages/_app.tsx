@@ -21,6 +21,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
         name="Description"
         content="vim.how vim vi how howto command commands search documentation help"
       />
+      <meta name="theme-color" content="#000000" />
     </Head>
     <div className="main-grid grid gap-4 h-screen">
       <Header />

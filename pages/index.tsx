@@ -1,109 +1,28 @@
 import * as React from "react";
+import { AnimatedOpacity } from "../components/animated-opacity";
 import { useDebounce } from "../hooks/use-debounce";
-import commands from "../data/commands.json";
-import { useSpring, animated } from "react-spring";
+import { searchCommands } from "../utils/commands";
 
-type Command = {
-  id: number;
-  categoryId: number;
-  title: string;
-  tags: string[];
-  command: string;
-  description: string;
-};
-
-const commandList = commands.commands;
-// const categoryList = commands.categories;
-
-const sum = (acc: number, cur: number) => acc + cur;
-
-const grade = (
-  searchTerms: string[],
-  source: string,
-  exactGrade: number,
-  partialGrade = 0
-): number =>
-  searchTerms
-    .map((term) => {
-      const fixedSource = source.toLocaleLowerCase();
-
-      if (fixedSource === term) return exactGrade;
-      if (partialGrade === 0) return 0;
-
-      return fixedSource.includes(term) ? partialGrade : 0;
-    })
-    .reduce(sum, 0);
-
-const gradeList = (
-  searchTerms: string[],
-  sources: string[],
-  exactGrade: number,
-  partialGrade = 0
-): number =>
-  searchTerms
-    .map((term) =>
-      sources
-        .map((source) => {
-          const fixedSource = source.toLocaleLowerCase();
-
-          if (fixedSource === term) return exactGrade;
-          if (partialGrade === 0) return 0;
-
-          return fixedSource.includes(term) ? partialGrade : 0;
-        })
-        .reduce(sum, 0)
-    )
-    .reduce(sum, 0);
-
-const searchCommands = (searchInput: string): Command[] => {
-  const search = searchInput.trim().toLocaleLowerCase();
-  if (search === "") return [];
-
-  const searchTerms = search.split(" ");
-
-  return commandList
-    .map((command) => ({
-      points: [
-        grade(searchTerms, command.command, 50, 10),
-        gradeList(searchTerms, command.tags, 3, 1),
-      ].reduce(sum, 0),
-      command,
-    }))
-    .filter(({ points }) => points > 0)
-    .sort((a, b) => b.points - a.points)
-    .map(({ command }) => command) as Command[];
-};
+// const Category: React.FC<{ name: string; colorClass: string }> = ({
+//   name,
+//   colorClass,
+// }) => <div className={colorClass}>{name}</div>;
 
 const Command: React.FC<{
   title: string;
   command: string;
   description: string;
 }> = ({ title, command, description }) => (
-  <div className="grid grid-rows-3 grid-flow-col gap-4">
-    <div className="row-span-3 place-items-center">
-      <div className="text-6xl bg-white text-black pl-5 pr-5">{command}</div>
+  <div className="grid grid-rows-3 grid-cols-3 gap-4">
+    <div className="row-span-3 flex justify-center pt-1 items-baseline">
+      <div className="text-4xl bg-white text-black pl-3 pr-3 rounded-lg">
+        {command}
+      </div>
     </div>
     <div className="row-span-1 col-span-2">{title}</div>
     <div className="row-span-2 col-span-2">{description}</div>
   </div>
 );
-
-const AnimatedOpacity: React.FC<{
-  duration: number;
-  children: React.ReactNode;
-}> = ({ duration = 500, children }) => {
-  const props = useSpring({
-    opacity: 1,
-    from: { opacity: 0 },
-    config: { duration },
-  });
-
-  return (
-    <animated.div style={props} className="p-4 border-gray-900 border-2">
-      {children}
-    </animated.div>
-  );
-};
 
 const Home: React.FC = () => {
   const [search, setSearch] = React.useState("");
@@ -115,7 +34,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
-      <div className="grid place-items-center pb-4">
+      <div className="flex justify-center pb-4">
         <input
           className="p-2 bg-black border-white border-2 outline-none"
           placeholder="Search command"
@@ -127,8 +46,8 @@ const Home: React.FC = () => {
           aria-label="Search"
         />
       </div>
-      <div className="grid place-items-center">
-        <div className="max-w-md">
+      <div className="flex justify-center">
+        <div className="max-w-xl">
           {results.map((result, index) => (
             <div key={result.id} className="p-2">
               <AnimatedOpacity duration={300 + index * 100}>

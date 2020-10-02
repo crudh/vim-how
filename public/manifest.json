@@ -1,8 +1,8 @@
 {
   "name": "vim.how",
   "short_name": "vim.how",
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "display": "minimal-ui",
   "scope": "/",
   "start_url": "/",
@@ -46,6 +46,12 @@
       "src": "images/icons/icon-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "images/icons/icon-maskable-731x731.png",
+      "sizes": "731x731",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }
