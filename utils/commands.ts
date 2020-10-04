@@ -7,23 +7,30 @@ export const categoriesList = Object.values(categories);
 const sum = (acc: number, cur: number) => acc + cur;
 
 const grade = (
+  term: string,
+  source: string,
+  exactGrade: number,
+  partialGrade = 0
+) => {
+  const fixedSource = source.toLocaleLowerCase();
+
+  if (fixedSource === term) return exactGrade;
+  if (partialGrade === 0) return 0;
+
+  return fixedSource.includes(term) ? partialGrade : 0;
+};
+
+const gradeItem = (
   searchTerms: string[],
   source: string,
   exactGrade: number,
   partialGrade = 0
 ): number =>
   searchTerms
-    .map((term) => {
-      const fixedSource = source.toLocaleLowerCase();
-
-      if (fixedSource === term) return exactGrade;
-      if (partialGrade === 0) return 0;
-
-      return fixedSource.includes(term) ? partialGrade : 0;
-    })
+    .map((term) => grade(term, source, exactGrade, partialGrade))
     .reduce(sum, 0);
 
-const gradeList = (
+const gradeItemsList = (
   searchTerms: string[],
   sources: string[],
   exactGrade: number,
@@ -32,17 +39,18 @@ const gradeList = (
   searchTerms
     .map((term) =>
       sources
-        .map((source) => {
-          const fixedSource = source.toLocaleLowerCase();
-
-          if (fixedSource === term) return exactGrade;
-          if (partialGrade === 0) return 0;
-
-          return fixedSource.includes(term) ? partialGrade : 0;
-        })
+        .map((source) => grade(term, source, exactGrade, partialGrade))
         .reduce(sum, 0)
     )
     .reduce(sum, 0);
+
+const gradeItemsString = (
+  searchTerms: string[],
+  source: string,
+  exactGrade: number,
+  partialGrade = 0
+): number =>
+  gradeItemsList(searchTerms, source.split(" "), exactGrade, partialGrade);
 
 export const searchCommands = (searchInput: string): Command[] => {
   const search = searchInput.trim().toLocaleLowerCase();
@@ -53,8 +61,9 @@ export const searchCommands = (searchInput: string): Command[] => {
   return commandList
     .map((command) => ({
       points: [
-        grade(searchTerms, command.command, 50, 10),
-        gradeList(searchTerms, command.tags, 3, 1),
+        gradeItem(searchTerms, command.command, 50, 10),
+        gradeItemsString(searchTerms, command.title, 5, 3),
+        gradeItemsList(searchTerms, command.tags, 4, 2),
       ].reduce(sum, 0),
       command,
     }))
