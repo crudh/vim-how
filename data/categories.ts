@@ -16,7 +16,7 @@ export const categories: Categories = {
   },
   2: {
     id: 2,
-    name: "Editing",
+    name: "Insert mode",
     colorClass: "bg-red-600",
   },
 };
