@@ -2,9 +2,12 @@ import * as React from "react";
 import { useDebounce } from "../hooks/use-debounce";
 import { searchCommands } from "../utils/commands";
 import { motion } from "framer-motion";
-import { CommandBox } from "../components/command-box";
+import { categoriesList } from "../utils/categories";
+import { CategoryBox } from "../components/category-box";
+import Link from "next/link";
+import { CommandBoxList } from "../components/command-box-list";
 
-const Home: React.FC = () => {
+const HomePage: React.FC = () => {
   const [search, setSearch] = React.useState("");
   const debouncedSearch = useDebounce(search, 300);
   const searchRef = React.useRef<HTMLInputElement>(null);
@@ -16,6 +19,9 @@ const Home: React.FC = () => {
   const results = React.useMemo(() => searchCommands(debouncedSearch), [
     debouncedSearch,
   ]);
+
+  const showCategories = debouncedSearch === "";
+  const showNoResults = debouncedSearch !== "" && results.length === 0;
 
   return (
     <div>
@@ -32,24 +38,32 @@ const Home: React.FC = () => {
         />
       </div>
       <div className="flex justify-center">
+        {showCategories && (
+          <div className="max-w-xl mt-12">
+            {categoriesList.map((category, index) => (
+              <motion.div
+                key={category.id}
+                className="p-2"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4 * (index + 1) }}
+              >
+                <Link href={`/categories/${category.id}`}>
+                  <a>
+                    <CategoryBox {...category} />
+                  </a>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        )}
         <div className="max-w-xl">
-          {results.map((command, index) => (
-            <motion.div
-              key={command.id}
-              className="p-2"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{
-                duration: 0.2 * (index + 1),
-              }}
-            >
-              <CommandBox {...command} />
-            </motion.div>
-          ))}
+          <CommandBoxList commands={results} />
+          {showNoResults && <div>nopes</div>}
         </div>
       </div>
     </div>
   );
 };
 
-export default Home;
+export default HomePage;

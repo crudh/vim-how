@@ -1,8 +1,6 @@
 import { commands, Command } from "../data/commands";
-import { categories } from "../data/categories";
 
 const commandList = Object.values(commands);
-export const categoriesList = Object.values(categories);
 
 const sum = (acc: number, cur: number) => acc + cur;
 
@@ -71,3 +69,6 @@ export const searchCommands = (searchInput: string): Command[] => {
     .sort((a, b) => b.points - a.points)
     .map(({ command }) => command) as Command[];
 };
+
+export const commandsByCategoryId = (id: number): Command[] =>
+  commandList.filter((command) => command.categoryId === id);
