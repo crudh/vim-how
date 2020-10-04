@@ -7,6 +7,11 @@ import { CommandBox } from "../components/command-box";
 const Home: React.FC = () => {
   const [search, setSearch] = React.useState("");
   const debouncedSearch = useDebounce(search, 300);
+  const searchRef = React.useRef<HTMLInputElement>(null);
+
+  React.useEffect(() => {
+    searchRef.current && searchRef.current.focus();
+  }, [searchRef]);
 
   const results = React.useMemo(() => searchCommands(debouncedSearch), [
     debouncedSearch,
@@ -16,14 +21,14 @@ const Home: React.FC = () => {
     <div>
       <div className="flex justify-center pb-4">
         <input
+          ref={searchRef}
           className="p-2 bg-black border-white border-2 outline-none rounded-lg"
           placeholder="Search command"
           type="text"
           value={search}
-          onChange={(e) => {
-            setSearch(e.target.value);
-          }}
+          onChange={(e) => setSearch(e.target.value)}
           aria-label="Search"
+          autoFocus
         />
       </div>
       <div className="flex justify-center">
@@ -34,7 +39,6 @@ const Home: React.FC = () => {
               className="p-2"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
               transition={{
                 duration: 0.2 * (index + 1),
               }}
