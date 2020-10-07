@@ -3,18 +3,22 @@ import { CommandBoxList } from "../../components/command-box-list";
 import { commandsByCategoryId } from "../../utils/commands";
 import { useRouter } from "next/router";
 import { LinkButton } from "../../components/link-button";
+import { categoryById } from "../../utils/categories";
 
 const CategoryPage: React.FC = () => {
   const router = useRouter();
   const id = Number(router.query.id);
+  const category = categoryById(id);
   const commands = commandsByCategoryId(id);
 
   return (
     <div className="flex flex-col items-center">
-      <div className="pb-4">
+      <div className="pb-8">
         <LinkButton label="Back" to="/" />
       </div>
-      <div className="max-w-xl">
+      <h2>{category.name}</h2>
+      <div>{category.description}</div>
+      <div className="max-w-xl pt-6">
         <CommandBoxList commands={commands} />
       </div>
     </div>
