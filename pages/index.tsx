@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-center pb-4">
+      <div className="flex justify-center pb-12">
         <input
           ref={searchRef}
           className="p-2 bg-black border-white border-2 outline-none rounded-lg"
@@ -39,7 +39,7 @@ const HomePage: React.FC = () => {
       </div>
       <div className="flex justify-center">
         {showCategories && (
-          <div className="max-w-xl mt-12">
+          <div className="max-w-xl">
             {categoriesList.map((category, index) => (
               <motion.div
                 key={category.id}
