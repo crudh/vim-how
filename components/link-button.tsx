@@ -8,7 +8,7 @@ export const LinkButton: React.FC<{ label: string; to: string }> = ({
   <Link href={to}>
     <a>
       <div
-        className={`inline-block pt-3 pb-3 pl-6 pr-6 rounded-lg uppercase border-gray-900 border-2`}
+        className={`inline-block pt-2 pb-2 pl-6 pr-6 rounded-lg uppercase border-gray-500 border-2 hover:border-white`}
       >
         {label}
       </div>

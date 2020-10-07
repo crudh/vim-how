@@ -25,10 +25,10 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex justify-center pb-12">
+      <div className="flex justify-center pb-8">
         <input
           ref={searchRef}
-          className="p-2 bg-black border-white border-2 outline-none rounded-lg"
+          className="p-2 bg-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
           placeholder="Search command"
           type="text"
           value={search}
@@ -59,7 +59,7 @@ const HomePage: React.FC = () => {
         )}
         <div className="max-w-xl">
           <CommandBoxList commands={results} />
-          {showNoResults && <div>nopes</div>}
+          {showNoResults && <div>nope, didn&apos;t find that</div>}
         </div>
       </div>
     </div>
