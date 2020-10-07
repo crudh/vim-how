@@ -3,7 +3,17 @@ import { CommandBoxList } from "../../components/command-box-list";
 import { commandsByCategoryId } from "../../utils/commands";
 import { useRouter } from "next/router";
 import { LinkButton } from "../../components/link-button";
-import { categoryById } from "../../utils/categories";
+import { categoriesList, categoryById } from "../../utils/categories";
+import { GetStaticPaths, GetStaticProps } from "next";
+
+export const getStaticProps: GetStaticProps = async () => ({ props: {} });
+
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: categoriesList.map((category) => ({
+    params: { id: category.id.toString() },
+  })),
+  fallback: false,
+});
 
 const CategoryPage: React.FC = () => {
   const router = useRouter();
