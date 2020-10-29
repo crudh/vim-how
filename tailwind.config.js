@@ -5,9 +5,9 @@ module.exports = {
   },
   purge: [
     "./pages/**/*.tsx",
-    "./pages/**/*.js",
+    "./pages/**/*.ts",
     "./components/**/*.tsx",
-    "./components/**/*.js",
+    "./components/**/*.ts",
     "./data/**/*.ts",
   ],
   theme: {
