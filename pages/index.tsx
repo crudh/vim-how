@@ -1,4 +1,3 @@
-import * as React from "react";
 import { useDebounce } from "../hooks/use-debounce";
 import { searchCommands } from "../utils/commands";
 import { motion } from "framer-motion";
@@ -6,17 +5,18 @@ import { categoriesList } from "../utils/categories";
 import { CategoryBox } from "../components/category-box";
 import Link from "next/link";
 import { CommandBoxList } from "../components/command-box-list";
+import { useEffect, useMemo, useRef, useState } from "react";
 
 const HomePage: React.FC = () => {
-  const [search, setSearch] = React.useState("");
+  const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 300);
-  const searchRef = React.useRef<HTMLInputElement>(null);
+  const searchRef = useRef<HTMLInputElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     searchRef.current && searchRef.current.focus();
   }, [searchRef]);
 
-  const results = React.useMemo(() => searchCommands(debouncedSearch), [
+  const results = useMemo(() => searchCommands(debouncedSearch), [
     debouncedSearch,
   ]);
 

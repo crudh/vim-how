@@ -1,4 +1,3 @@
-import * as React from "react";
 import { CommandBoxList } from "../../components/command-box-list";
 import { commandsByCategoryId } from "../../utils/commands";
 import { useRouter } from "next/router";
