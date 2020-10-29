@@ -1,4 +1,3 @@
-import * as React from "react";
 import { Command } from "../data/commands";
 import { motion } from "framer-motion";
 import { CommandBox } from "./command-box";

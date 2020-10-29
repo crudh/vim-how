@@ -1,5 +1,3 @@
-import * as React from "react";
-
 export const CommandBox: React.FC<{
   title: string;
   command: string;
