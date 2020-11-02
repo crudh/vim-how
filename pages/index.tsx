@@ -5,36 +5,29 @@ import { categoriesList } from "../utils/categories";
 import { CategoryBox } from "../components/category-box";
 import Link from "next/link";
 import { CommandBoxList } from "../components/command-box-list";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useMemo, useState } from "react";
 
 const HomePage: React.FC = () => {
   const [search, setSearch] = useState("");
   const debouncedSearch = useDebounce(search, 300);
-  const searchRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    searchRef.current && searchRef.current.focus();
-  }, [searchRef]);
 
   const results = useMemo(() => searchCommands(debouncedSearch), [
     debouncedSearch,
   ]);
 
   const showCategories = debouncedSearch === "";
-  const showNoResults = debouncedSearch !== "" && results.length === 0;
+  const showNoResults = !showCategories && results.length === 0;
 
   return (
     <div>
       <div className="flex justify-center pb-8">
         <input
-          ref={searchRef}
           className="p-2 bg-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
           placeholder="Search command"
           type="text"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           aria-label="Search"
-          autoFocus
         />
       </div>
       <div className="flex justify-center">
