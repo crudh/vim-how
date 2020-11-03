@@ -1,10 +1,11 @@
 import { Command } from "../data/commands";
 import { motion } from "framer-motion";
-import { CommandBox } from "./command-box";
+import { CommandView } from "./command-view";
 
-export const CommandBoxList: React.FC<{ commands: Command[] }> = ({
-  commands,
-}) => (
+export const CommandViewList: React.FC<{
+  commands: Command[];
+  showCategory?: boolean;
+}> = ({ commands, showCategory = false }) => (
   <>
     {commands.map((command, index) => (
       <motion.div
@@ -16,7 +17,11 @@ export const CommandBoxList: React.FC<{ commands: Command[] }> = ({
           duration: 0.2 * (index + 1),
         }}
       >
-        <CommandBox {...command} />
+        <CommandView
+          command={command.command}
+          title={command.title}
+          categoryId={showCategory ? command.categoryId : undefined}
+        />
       </motion.div>
     ))}
   </>
