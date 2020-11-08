@@ -1,16 +1,15 @@
 ## Getting Started
 
-Install [yarn](https://yarnpkg.com/).
-
 Install all dependencies:
+
 ```
-yarn install
+npm i
 ```
 
 ## Run in development mode
 
 ```
-yarn dev
+npm run dev
 ```
 
 And go to [http://localhost:4000/](http://localhost:4000/)
@@ -18,7 +17,7 @@ And go to [http://localhost:4000/](http://localhost:4000/)
 ## Build a production bundle
 
 ```
-yarn build
+npm run build
 ```
 
 ## Run in production mode
@@ -26,7 +25,7 @@ yarn build
 First build a production bundle, then:
 
 ```
-yarn start
+npm run start
 ```
 
 And go to [http://localhost:3000/](http://localhost:3000/)
