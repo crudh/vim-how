@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { categoriesList } from "../utils/categories";
 import { CategoryBox } from "../components/category-box";
 import Link from "next/link";
-import { CommandBoxList } from "../components/command-box-list";
+import { CommandViewList } from "../components/command-view-list";
 import { useMemo, useState } from "react";
 
 const HomePage: React.FC = () => {
@@ -43,7 +43,10 @@ const HomePage: React.FC = () => {
               >
                 <Link href={`/categories/${category.id}`}>
                   <a>
-                    <CategoryBox {...category} />
+                    <CategoryBox colorClass={category.colorClass}>
+                      <div className="uppercase">{category.name}</div>
+                      <div className="text-sm">{category.description}</div>
+                    </CategoryBox>
                   </a>
                 </Link>
               </motion.div>
@@ -51,7 +54,7 @@ const HomePage: React.FC = () => {
           </div>
         )}
         <div className="max-w-xl">
-          <CommandBoxList commands={results} />
+          <CommandViewList commands={results} showCategory />
           {showNoResults && <div>nope, didn&apos;t find that</div>}
         </div>
       </div>

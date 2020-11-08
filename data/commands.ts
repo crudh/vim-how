@@ -4,7 +4,6 @@ export type Command = {
   title: string;
   tags: string[];
   command: string;
-  description: string;
 };
 
 export type Commands = {
@@ -18,7 +17,6 @@ export const commands: Commands = {
     title: "Move cursor left",
     tags: ["cursor", "movement", "move", "left", "navigation", "h"],
     command: "h",
-    description: "",
   },
   2: {
     id: 2,
@@ -26,7 +24,6 @@ export const commands: Commands = {
     title: "Move cursor down",
     tags: ["cursor", "movement", "move", "down", "navigation", "j"],
     command: "j",
-    description: "",
   },
   3: {
     id: 3,
@@ -34,7 +31,6 @@ export const commands: Commands = {
     title: "Move cursor up",
     tags: ["cursor", "movement", "move", "up", "navigation", "k"],
     command: "k",
-    description: "",
   },
   4: {
     id: 4,
@@ -42,7 +38,6 @@ export const commands: Commands = {
     title: "Move cursor right",
     tags: ["cursor", "movement", "move", "right", "navigation", "l"],
     command: "l",
-    description: "",
   },
   5: {
     id: 5,
@@ -50,7 +45,6 @@ export const commands: Commands = {
     title: "Move to first line of the file",
     tags: ["cursor", "movement", "move", "first line", "navigation", "gg"],
     command: "gg",
-    description: "",
   },
   6: {
     id: 6,
@@ -58,7 +52,6 @@ export const commands: Commands = {
     title: "Insert before the cursor",
     tags: [],
     command: "i",
-    description: "",
   },
   7: {
     id: 7,
@@ -66,7 +59,6 @@ export const commands: Commands = {
     title: "Insert at the beginning of the line",
     tags: [],
     command: "I",
-    description: "",
   },
   8: {
     id: 8,
@@ -74,7 +66,6 @@ export const commands: Commands = {
     title: "Insert after the cursor",
     tags: [],
     command: "a",
-    description: "",
   },
   9: {
     id: 9,
@@ -82,6 +73,5 @@ export const commands: Commands = {
     title: "Insert at the end of the line",
     tags: [],
     command: "A",
-    description: "",
   },
 };
