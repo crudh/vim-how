@@ -46,7 +46,7 @@ const CategoryPage: FC = () => {
         onChange={handleUpdateSearch}
         aria-label="Search"
       />
-      <h3 className="pt-8 pb-8 uppercase">{category.name}</h3>
+      <h2 className="pt-8 pb-8 uppercase">{category.name}</h2>
       <div className="max-w-xl text-center pb-8">
         {category.descriptionLong}
       </div>
