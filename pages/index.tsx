@@ -23,7 +23,7 @@ const StartPage: FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <>
       <input
         className="p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
         placeholder="Search command"
@@ -61,7 +61,7 @@ const StartPage: FC = () => {
           <CommandViewList commands={results} showCategory />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

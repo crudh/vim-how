@@ -9,7 +9,13 @@ const Header = () => (
   </header>
 );
 
-const Footer = () => <footer className="p-2 pt-8">No copyright here!</footer>;
+const Footer = () => (
+  <footer className="p-2 pt-8 flex">
+    <a href="https://crudh.se">Contact</a>
+    <div className="pl-4 pr-4">|</div>
+    <a href="https://github.com/crudh/vim-how">GitHub</a>
+  </footer>
+);
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
@@ -23,7 +29,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
     </Head>
     <div className="flex flex-col items-center min-h-screen">
       <Header />
-      <main className="w-full flex-1">
+      <main className="w-full flex-1 flex flex-col items-center">
         <Component {...pageProps} />
       </main>
       <Footer />
