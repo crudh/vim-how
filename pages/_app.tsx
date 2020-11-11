@@ -1,18 +1,17 @@
 import Head from "next/head";
 import type { AppProps } from "next/app";
 import "../styles/index.css";
+import { FC } from "react";
 
 const Header = () => (
-  <header className="grid place-items-center p-2">
+  <header className="p-2 pb-8">
     <h1>vim.how</h1>
   </header>
 );
 
-const Footer = () => (
-  <footer className="grid place-items-center p-2">No copyright here!</footer>
-);
+const Footer = () => <footer className="p-2 pt-8">No copyright here!</footer>;
 
-const App: React.FC<AppProps> = ({ Component, pageProps }) => (
+const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
       <title>vim.how</title>
@@ -22,9 +21,9 @@ const App: React.FC<AppProps> = ({ Component, pageProps }) => (
       />
       <meta name="theme-color" content="#000000" />
     </Head>
-    <div className="main-grid grid gap-4 h-screen">
+    <div className="flex flex-col items-center min-h-screen">
       <Header />
-      <main>
+      <main className="w-full flex-1">
         <Component {...pageProps} />
       </main>
       <Footer />

@@ -6,7 +6,7 @@
     "dev": "next dev -p 4000",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint utils hooks components pages"
+    "lint": "eslint utils components pages"
   },
   "dependencies": {
     "framer-motion": "^2.7.7",

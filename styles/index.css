@@ -2,10 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-.main-grid {
-  grid-template-rows: auto 1fr auto;
-}
-
 h1 {
   @apply text-4xl;
 }
