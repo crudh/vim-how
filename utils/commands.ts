@@ -50,7 +50,10 @@ const gradeItemsString = (
 ): number =>
   gradeItemsList(searchTerms, source.split(" "), exactGrade, partialGrade);
 
-export const searchCommands = (searchInput: string): Command[] => {
+export const searchCommands = (
+  searchInput: string,
+  categoryId?: number
+): Command[] => {
   const search = searchInput.trim().toLocaleLowerCase();
   if (search === "") return [];
 
@@ -58,11 +61,14 @@ export const searchCommands = (searchInput: string): Command[] => {
 
   return commandList
     .map((command) => ({
-      points: [
-        gradeItem(searchTerms, command.command, 50, 10),
-        gradeItemsString(searchTerms, command.title, 5, 3),
-        gradeItemsList(searchTerms, command.tags, 4, 2),
-      ].reduce(sum, 0),
+      points:
+        categoryId !== undefined && categoryId !== command.categoryId
+          ? 0
+          : [
+              gradeItem(searchTerms, command.command, 50, 10),
+              gradeItemsString(searchTerms, command.title, 5, 3),
+              gradeItemsList(searchTerms, command.tags, 4, 2),
+            ].reduce(sum, 0),
       command,
     }))
     .filter(({ points }) => points > 0)

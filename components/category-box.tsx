@@ -1,4 +1,6 @@
-export const CategoryBox: React.FC<{
+import { FC } from "react";
+
+export const CategoryBox: FC<{
   colorClass: string;
   paddingClass?: string;
 }> = ({ colorClass, paddingClass = "p-4", children }) => (
