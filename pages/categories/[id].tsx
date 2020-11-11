@@ -37,7 +37,7 @@ const CategoryPage: FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <>
       <input
         className="p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
         placeholder="Search command"
@@ -56,7 +56,7 @@ const CategoryPage: FC = () => {
       <div className="w-full sm:w-2/3 md:w-1/2 xl:w-1/3 pt-8">
         <CommandViewList commands={commands} />
       </div>
-    </div>
+    </>
   );
 };
 
