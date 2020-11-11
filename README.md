@@ -1,6 +1,6 @@
 # [vim.how](https://vim.how)
 
-This is a PWA that is a searchable catalogue of vim commands organized by category.
+This is a PWA that is a searchable cataloge of vim commands organized by category.
 
 I did it as a hobby project to force myself to finally learn vim. Hopefully in the future it will be more extensive with examples etc.
 
