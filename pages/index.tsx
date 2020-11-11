@@ -34,7 +34,7 @@ const StartPage: FC = () => {
       />
       {showCategories ? (
         <>
-          <h3 className="pt-8 pb-8 uppercase">Categories</h3>
+          <h2 className="pt-8 pb-8 uppercase">Categories</h2>
           <div className="max-w-xl">
             {categoriesList.map((category, index) => (
               <motion.div
