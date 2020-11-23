@@ -23,11 +23,7 @@ export const CommandViewList: FC<{
             duration: 0.2 * (index + 1),
           }}
         >
-          <CommandView
-            command={command.command}
-            title={command.title}
-            categoryId={showCategory ? command.categoryId : undefined}
-          />
+          <CommandView command={command} showCategory={showCategory} />
         </motion.div>
       ))}
     </>

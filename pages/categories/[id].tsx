@@ -6,6 +6,7 @@ import { categoriesList, categoryById } from "../../utils/categories";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { queryParamAsString } from "../../utils/routes";
 import { ChangeEvent, FC } from "react";
+import { CategoryBox } from "../../components/category-box";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
@@ -21,6 +22,9 @@ const CategoryPage: FC = () => {
   const search = queryParamAsString(router.query.search);
   const categoryId = Number(router.query.id);
   const category = categoryById(categoryId);
+
+  if (!category) return null;
+
   const commands =
     search === ""
       ? commandsByCategoryId(categoryId)
@@ -46,7 +50,11 @@ const CategoryPage: FC = () => {
         onChange={handleUpdateSearch}
         aria-label="Search"
       />
-      <h2 className="pt-8 pb-8 uppercase">{category.name}</h2>
+      <div className="pt-4 pb-4">
+        <CategoryBox category={category}>
+          <h2 className="uppercase">{category.name}</h2>
+        </CategoryBox>
+      </div>
       <div className="max-w-xl text-center pb-8">
         {category.descriptionLong}
       </div>
