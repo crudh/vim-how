@@ -46,7 +46,7 @@ const StartPage: FC = () => {
               >
                 <Link href={`/categories/${category.id}`}>
                   <a>
-                    <CategoryBox colorClass={category.colorClass}>
+                    <CategoryBox category={category}>
                       <div className="uppercase">{category.name}</div>
                       <div className="text-sm">{category.description}</div>
                     </CategoryBox>

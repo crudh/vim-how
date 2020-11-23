@@ -1,10 +1,11 @@
 import { commands, Command } from "../data/commands";
+import { categoryById } from "./categories";
 
 const commandList = Object.values(commands);
 
 const sum = (acc: number, cur: number) => acc + cur;
 
-const grade = (
+const grader = (
   term: string,
   source: string,
   exactGrade: number,
@@ -18,37 +19,29 @@ const grade = (
   return fixedSource.includes(term) ? partialGrade : 0;
 };
 
-const gradeItem = (
+const gradeString = (
   searchTerms: string[],
   source: string,
   exactGrade: number,
   partialGrade = 0
 ): number =>
   searchTerms
-    .map((term) => grade(term, source, exactGrade, partialGrade))
+    .map((term) => grader(term, source, exactGrade, partialGrade))
     .reduce(sum, 0);
 
-const gradeItemsList = (
-  searchTerms: string[],
-  sources: string[],
-  exactGrade: number,
-  partialGrade = 0
-): number =>
-  searchTerms
-    .map((term) =>
-      sources
-        .map((source) => grade(term, source, exactGrade, partialGrade))
-        .reduce(sum, 0)
-    )
-    .reduce(sum, 0);
-
-const gradeItemsString = (
-  searchTerms: string[],
-  source: string,
-  exactGrade: number,
-  partialGrade = 0
-): number =>
-  gradeItemsList(searchTerms, source.split(" "), exactGrade, partialGrade);
+// const gradeStringArray = (
+//   searchTerms: string[],
+//   sources: string[],
+//   exactGrade: number,
+//   partialGrade = 0
+// ): number =>
+//   searchTerms
+//     .map((term) =>
+//       sources
+//         .map((source) => grader(term, source, exactGrade, partialGrade))
+//         .reduce(sum, 0)
+//     )
+//     .reduce(sum, 0);
 
 export const searchCommands = (
   searchInput: string,
@@ -65,9 +58,26 @@ export const searchCommands = (
         categoryId !== undefined && categoryId !== command.categoryId
           ? 0
           : [
-              gradeItem(searchTerms, command.command, 50, 10),
-              gradeItemsString(searchTerms, command.title, 5, 3),
-              gradeItemsList(searchTerms, command.tags, 4, 2),
+              gradeString(searchTerms, command.command, 500, 100),
+              gradeString(searchTerms, command.title, 100, 20),
+              gradeString(
+                searchTerms,
+                categoryById(command.categoryId)?.name ?? "",
+                10,
+                5
+              ),
+              gradeString(
+                searchTerms,
+                categoryById(command.categoryId)?.description ?? "",
+                3,
+                3
+              ),
+              gradeString(
+                searchTerms,
+                categoryById(command.categoryId)?.descriptionLong ?? "",
+                3,
+                3
+              ),
             ].reduce(sum, 0),
       command,
     }))
