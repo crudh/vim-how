@@ -42,7 +42,7 @@ const StartPage: FC = () => {
                 className="p-2"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ duration: 0.4 * (index + 1) }}
+                transition={{ duration: 0.2 * (index + 1) }}
               >
                 <Link href={`/categories/${category.id}`}>
                   <a>

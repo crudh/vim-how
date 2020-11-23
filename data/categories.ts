@@ -34,7 +34,7 @@ const categoryList: Category[] = [
   {
     id: 4,
     name: "Visual mode",
-    colorClass: "bg-yellow-800",
+    colorClass: "bg-pink-700",
     description: "Selecting text in different ways",
     descriptionLong:
       "You use visual mode to select text in different ways. You can then use different commands to affect the text",
