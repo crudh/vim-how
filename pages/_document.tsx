@@ -35,6 +35,9 @@ class MyDocument extends Document {
             type="image/png"
             href="/images/icons/icon-192x192.png"
           />
+          {process.env.VERCEL_ENV === "production" ? (
+            <script async data-api="/_hive" src="/bee.js"></script>
+          ) : null}
         </Head>
         <body className="bg-black text-white font-fira">
           <Main />
