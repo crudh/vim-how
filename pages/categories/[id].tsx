@@ -1,12 +1,13 @@
-import { CommandViewList } from "../../components/command-view-list";
-import { commandsByCategoryId, searchCommands } from "../../utils/commands";
+import { ChangeEvent, FC } from "react";
+import { GetStaticPaths, GetStaticProps } from "next";
+import Head from "next/head";
 import { useRouter } from "next/router";
+import { CategoryBox } from "../../components/category-box";
+import { CommandViewList } from "../../components/command-view-list";
 import { LinkButton } from "../../components/link-button";
 import { categoriesList, categoryById } from "../../utils/categories";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { commandsByCategoryId, searchCommands } from "../../utils/commands";
 import { queryParamAsString } from "../../utils/routes";
-import { ChangeEvent, FC } from "react";
-import { CategoryBox } from "../../components/category-box";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
@@ -42,6 +43,9 @@ const CategoryPage: FC = () => {
 
   return (
     <>
+      <Head>
+        <title key="title">vim.how - {category.name}</title>
+      </Head>
       <input
         className="p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
         placeholder="Search command"

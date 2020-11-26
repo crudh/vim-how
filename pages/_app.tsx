@@ -1,7 +1,7 @@
-import Head from "next/head";
-import type { AppProps } from "next/app";
-import "../styles/index.css";
 import { FC } from "react";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+import "../styles/index.css";
 
 const Header = () => (
   <header className="p-2 pb-8">
@@ -20,7 +20,7 @@ const Footer = () => (
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
-      <title>vim.how</title>
+      <title key="title">vim.how</title>
       <meta
         name="Description"
         content="vim.how vim vi how howto command commands search documentation help"

@@ -1,11 +1,11 @@
-import { searchCommands } from "../utils/commands";
-import { motion } from "framer-motion";
-import { categoriesList } from "../utils/categories";
-import { CategoryBox } from "../components/category-box";
-import Link from "next/link";
-import { CommandViewList } from "../components/command-view-list";
 import { ChangeEvent, FC, useMemo } from "react";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import { motion } from "framer-motion";
+import { CategoryBox } from "../components/category-box";
+import { CommandViewList } from "../components/command-view-list";
+import { categoriesList } from "../utils/categories";
+import { searchCommands } from "../utils/commands";
 import { queryParamAsString } from "../utils/routes";
 
 const StartPage: FC = () => {
