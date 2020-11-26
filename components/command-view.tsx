@@ -1,8 +1,8 @@
-import { categoryById } from "../utils/categories";
-import { CategoryBox } from "./category-box";
-import Link from "next/link";
 import { FC } from "react";
+import Link from "next/link";
+import { CategoryBox } from "./category-box";
 import { Command } from "../data/commands";
+import { categoryById } from "../utils/categories";
 
 export const CommandView: FC<{
   command: Command;

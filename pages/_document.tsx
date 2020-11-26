@@ -1,3 +1,4 @@
+import { ReactElement } from "react";
 import Document, {
   DocumentContext,
   Html,
@@ -6,7 +7,6 @@ import Document, {
   NextScript,
   DocumentInitialProps,
 } from "next/document";
-import { ReactElement } from "react";
 
 class MyDocument extends Document {
   static async getInitialProps(

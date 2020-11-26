@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { FC } from "react";
+import Link from "next/link";
 
 export const LinkButton: FC<{ label: string; to: string }> = ({
   label,

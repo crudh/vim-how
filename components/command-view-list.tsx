@@ -1,7 +1,7 @@
-import { Command } from "../data/commands";
+import { FC } from "react";
 import { motion } from "framer-motion";
 import { CommandView } from "./command-view";
-import { FC } from "react";
+import { Command } from "../data/commands";
 
 export const CommandViewList: FC<{
   commands: Command[];
