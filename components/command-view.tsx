@@ -4,6 +4,38 @@ import { CategoryBox } from "./category-box";
 import { Command } from "../data/commands";
 import { categoryById } from "../utils/categories";
 
+const isMac = () => {
+  if (typeof window === "undefined") {
+    return false;
+  }
+
+  return window.navigator.platform.toLowerCase().startsWith("mac");
+};
+
+const CommandKey: React.FC = ({ children }) => (
+  <div className="text-4xl bg-white text-black pl-3 pr-3 rounded-lg mr-2">
+    {children}
+  </div>
+);
+
+const MetaKey: React.FC = () => (
+  <>
+    <CommandKey>{isMac() ? "\u2318" : "Ctrl"}</CommandKey>
+    <div className="text-4xl mr-2">+</div>
+  </>
+);
+
+const CommandKeys: React.FC<{ command: Command }> = ({
+  command: { keys, usesMeta },
+}) => (
+  <>
+    {usesMeta ? <MetaKey /> : null}
+    {keys.split("").map((key, index) => (
+      <CommandKey key={index}>{key}</CommandKey>
+    ))}
+  </>
+);
+
 export const CommandView: FC<{
   command: Command;
   showCategory?: boolean;
@@ -12,15 +44,11 @@ export const CommandView: FC<{
 
   return (
     <div className="p-4 border-gray-900 border-2 rounded-lg">
-      <div className="grid grid-cols-3 gap-4">
-        <div className="flex justify-center pt-1 items-baseline">
-          <div className="text-4xl bg-white text-black pl-3 pr-3 rounded-lg">
-            {command.command}
-          </div>
+      <div className="flex">
+        <div className="flex pr-2">
+          <CommandKeys command={command} />
         </div>
-        <div className="col-span-2 flex flex-col self-center">
-          {command.title}
-        </div>
+        <div className="flex items-center">{command.title}</div>
       </div>
       {category && (
         <div className="flex justify-end pt-2">

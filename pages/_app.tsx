@@ -29,7 +29,7 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
     </Head>
     <div className="flex flex-col items-center min-h-screen">
       <Header />
-      <main className="w-full flex-1 flex flex-col items-center">
+      <main className="w-full flex flex-1 flex-col items-center">
         <Component {...pageProps} />
       </main>
       <Footer />

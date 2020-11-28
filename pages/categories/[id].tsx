@@ -5,15 +5,16 @@ import { useRouter } from "next/router";
 import { CategoryBox } from "../../components/category-box";
 import { CommandViewList } from "../../components/command-view-list";
 import { LinkButton } from "../../components/link-button";
-import { categoriesList, categoryById } from "../../utils/categories";
+import { categoryList } from "../../data/categories";
+import { categoryById } from "../../utils/categories";
 import { commandsByCategoryId, searchCommands } from "../../utils/commands";
 import { queryParamAsString } from "../../utils/routes";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
 export const getStaticPaths: GetStaticPaths = async () => ({
-  paths: categoriesList.map((category) => ({
-    params: { id: category.id.toString() },
+  paths: categoryList.map((category) => ({
+    params: { id: category.id },
   })),
   fallback: false,
 });
@@ -21,7 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 const CategoryPage: FC = () => {
   const router = useRouter();
   const search = queryParamAsString(router.query.search);
-  const categoryId = Number(router.query.id);
+  const categoryId = queryParamAsString(router.query.id);
   const category = categoryById(categoryId);
 
   if (!category) return null;
@@ -65,7 +66,7 @@ const CategoryPage: FC = () => {
       <div className="flex flex-col items-center">
         <LinkButton label="Back" to="/" />
       </div>
-      <div className="w-full sm:w-2/3 md:w-1/2 xl:w-1/3 pt-8">
+      <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 pt-8">
         <CommandViewList commands={commands} />
       </div>
     </>
