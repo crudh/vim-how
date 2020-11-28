@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { CategoryBox } from "../components/category-box";
 import { CommandViewList } from "../components/command-view-list";
-import { categoriesList } from "../utils/categories";
+import { categoryList } from "../data/categories";
 import { searchCommands } from "../utils/commands";
 import { queryParamAsString } from "../utils/routes";
 
@@ -36,7 +36,7 @@ const StartPage: FC = () => {
         <>
           <h2 className="pt-8 pb-8 uppercase">Categories</h2>
           <div className="max-w-xl">
-            {categoriesList.map((category, index) => (
+            {categoryList.map((category, index) => (
               <motion.div
                 key={category.id}
                 className="p-2"
@@ -57,7 +57,7 @@ const StartPage: FC = () => {
           </div>
         </>
       ) : (
-        <div className="w-full sm:w-2/3 md:w-1/2 xl:w-1/3 pt-8">
+        <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 pt-8">
           <CommandViewList commands={results} showCategory />
         </div>
       )}

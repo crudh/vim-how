@@ -45,7 +45,7 @@ const gradeString = (
 
 export const searchCommands = (
   searchInput: string,
-  categoryId?: number
+  categoryId?: string
 ): Command[] => {
   const search = searchInput.trim().toLocaleLowerCase();
   if (search === "") return [];
@@ -58,7 +58,7 @@ export const searchCommands = (
         categoryId !== undefined && categoryId !== command.categoryId
           ? 0
           : [
-              gradeString(searchTerms, command.command, 500, 100),
+              gradeString(searchTerms, command.keys, 500, 100),
               gradeString(searchTerms, command.title, 100, 20),
               gradeString(
                 searchTerms,
@@ -86,5 +86,5 @@ export const searchCommands = (
     .map(({ command }) => command) as Command[];
 };
 
-export const commandsByCategoryId = (id: number): Command[] =>
+export const commandsByCategoryId = (id: string): Command[] =>
   commandList.filter((command) => command.categoryId === id);

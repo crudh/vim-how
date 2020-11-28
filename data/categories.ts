@@ -1,14 +1,20 @@
+export type CategoryId =
+  | "cursormovement"
+  | "insertmode"
+  | "editing"
+  | "visualmode";
+
 export type Category = {
-  id: number;
+  id: CategoryId;
   name: string;
   colorClass: string;
   description: string;
   descriptionLong: string;
 };
 
-const categoryList: Category[] = [
+export const categoryList: Category[] = [
   {
-    id: 1,
+    id: "cursormovement",
     name: "Cursor movement",
     colorClass: "bg-blue-700",
     description: "Move the cursor in normal mode",
@@ -16,7 +22,7 @@ const categoryList: Category[] = [
       "In normal mode you can use these commands to move the cursor around",
   },
   {
-    id: 2,
+    id: "insertmode",
     name: "Insert mode",
     colorClass: "bg-red-700",
     description: "Go into insert mode in different ways",
@@ -24,7 +30,7 @@ const categoryList: Category[] = [
       "From the normal mode you can use these commands to jump into insert mode in different ways. Insert mode is where you enter text similar to a regular text editor",
   },
   {
-    id: 3,
+    id: "editing",
     name: "Editing",
     colorClass: "bg-green-700",
     description: "Editing of text while in normal mode",
@@ -32,7 +38,7 @@ const categoryList: Category[] = [
       "In normal mode you can use these commands for quick editing of text without going into insert mode",
   },
   {
-    id: 4,
+    id: "visualmode",
     name: "Visual mode",
     colorClass: "bg-pink-700",
     description: "Selecting text in different ways",
@@ -42,7 +48,7 @@ const categoryList: Category[] = [
 ];
 
 export type Categories = {
-  [id: number]: Category;
+  [id: string]: Category;
 };
 
 export const categories: Categories = categoryList.reduce(

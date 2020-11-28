@@ -1,76 +1,86 @@
+import { CategoryId } from "./categories";
+
 export type Command = {
   id: number;
-  categoryId: number;
+  categoryId: CategoryId;
+  keys: string;
+  usesMeta?: boolean;
   title: string;
-  command: string;
 };
 
 const commandList: Command[] = [
   {
     id: 1,
-    categoryId: 1,
-    command: "h",
+    categoryId: "cursormovement",
+    keys: "h",
     title: "Move cursor left",
   },
   {
     id: 2,
-    categoryId: 1,
-    command: "j",
+    categoryId: "cursormovement",
+    keys: "j",
     title: "Move cursor down",
   },
   {
     id: 3,
-    categoryId: 1,
-    command: "k",
+    categoryId: "cursormovement",
+    keys: "k",
     title: "Move cursor up",
   },
   {
     id: 4,
-    categoryId: 1,
-    command: "l",
+    categoryId: "cursormovement",
+    keys: "l",
     title: "Move cursor right",
   },
   {
     id: 5,
-    categoryId: 1,
-    command: "gg",
+    categoryId: "cursormovement",
+    keys: "gg",
     title: "Move to first line of the file",
   },
   {
     id: 6,
-    categoryId: 2,
-    command: "i",
+    categoryId: "insertmode",
+    keys: "i",
     title: "Insert before the cursor",
   },
   {
     id: 7,
-    categoryId: 2,
-    command: "I",
+    categoryId: "insertmode",
+    keys: "I",
     title: "Insert at the beginning of the line",
   },
   {
     id: 8,
-    categoryId: 2,
-    command: "a",
+    categoryId: "insertmode",
+    keys: "a",
     title: "Insert after the cursor",
   },
   {
     id: 9,
-    categoryId: 2,
-    command: "A",
+    categoryId: "insertmode",
+    keys: "A",
     title: "Insert at the end of the line",
   },
   {
     id: 10,
-    categoryId: 3,
-    command: "r",
+    categoryId: "editing",
+    keys: "r",
     title: "Replace a single character",
   },
   {
     id: 11,
-    categoryId: 3,
-    command: "J",
+    categoryId: "editing",
+    keys: "J",
     title: "Join line below to the current one",
+  },
+  {
+    id: 12,
+    categoryId: "cursormovement",
+    keys: "b",
+    usesMeta: true,
+    title: "Move the cursor up a full screen",
   },
 ];
 
