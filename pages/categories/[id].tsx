@@ -1,4 +1,4 @@
-import { ChangeEvent, FC } from "react";
+import { FC } from "react";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
@@ -9,6 +9,7 @@ import { categoryList } from "../../data/categories";
 import { categoryById } from "../../utils/categories";
 import { commandsByCategoryId, searchCommands } from "../../utils/commands";
 import { queryParamAsString } from "../../utils/routes";
+import { SearchInput } from "../../components/search-input";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
@@ -32,8 +33,7 @@ const CategoryPage: FC = () => {
       ? commandsByCategoryId(categoryId)
       : searchCommands(search, categoryId);
 
-  const handleUpdateSearch = (event: ChangeEvent<HTMLInputElement>) => {
-    const input = event.target.value;
+  const handleUpdateSearch = (input: string) => {
     const path =
       input === ""
         ? `/categories/${categoryId}`
@@ -47,26 +47,19 @@ const CategoryPage: FC = () => {
       <Head>
         <title key="title">vim.how - {category.name}</title>
       </Head>
-      <input
-        className="p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
-        placeholder="Search command"
-        type="text"
-        value={search}
-        onChange={handleUpdateSearch}
-        aria-label="Search"
-      />
-      <div className="pt-4 pb-4">
+      <SearchInput value={search} onUpdate={handleUpdateSearch} />
+      <div className="flex flex-col items-center pt-8 pb-8">
+        <LinkButton label="Back" to="/" />
+      </div>
+      <div className="pb-8">
         <CategoryBox category={category}>
           <h2 className="uppercase">{category.name}</h2>
         </CategoryBox>
       </div>
-      <div className="max-w-xl text-center pb-8">
+      <div className="max-w-xl text-center pb-4">
         {category.descriptionLong}
       </div>
-      <div className="flex flex-col items-center">
-        <LinkButton label="Back" to="/" />
-      </div>
-      <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5 pt-8">
+      <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5">
         <CommandViewList commands={commands} />
       </div>
     </>
