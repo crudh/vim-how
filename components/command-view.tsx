@@ -3,14 +3,7 @@ import Link from "next/link";
 import { CategoryBox } from "./category-box";
 import { Command } from "../data/commands";
 import { categoryById } from "../utils/categories";
-
-const isMac = () => {
-  if (typeof window === "undefined") {
-    return false;
-  }
-
-  return window.navigator.platform.toLowerCase().startsWith("mac");
-};
+import { isMac } from "../utils/environment";
 
 const CommandKey: React.FC = ({ children }) => (
   <div className="text-4xl bg-white text-black pl-3 pr-3 rounded-lg mr-2">

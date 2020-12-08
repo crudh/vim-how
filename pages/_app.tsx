@@ -1,21 +1,8 @@
 import { FC } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Menu } from "../components/menu";
 import "../styles/index.css";
-
-const Header = () => (
-  <header className="p-2 pb-8">
-    <h1>vim.how</h1>
-  </header>
-);
-
-const Footer = () => (
-  <footer className="p-2 pt-8 flex">
-    <a href="https://crudh.se">Contact</a>
-    <div className="pl-4 pr-4">|</div>
-    <a href="https://github.com/crudh/vim-how">GitHub</a>
-  </footer>
-);
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
@@ -27,12 +14,14 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
       />
       <meta name="theme-color" content="#000000" />
     </Head>
+    <Menu />
     <div className="flex flex-col items-center min-h-screen">
-      <Header />
+      <header className="p-2 pb-8">
+        <h1>vim.how</h1>
+      </header>
       <main className="w-full flex flex-1 flex-col items-center">
         <Component {...pageProps} />
       </main>
-      <Footer />
     </div>
   </>
 );

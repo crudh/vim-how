@@ -38,6 +38,10 @@ module.exports = {
       "6xl": "4rem",
     },
   },
-  variants: {},
+  variants: {
+    extend: {
+      opacity: ["disabled"],
+    },
+  },
   plugins: [],
 };
