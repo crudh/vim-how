@@ -9,6 +9,7 @@ const menuItems = [
     url: "/cheatsheets",
   },
   { name: "Tutorials", url: "/tutorials" },
+  { name: "Editors", url: "/editors" },
   { name: "GitHub", url: "https://github.com/crudh/vim-how", isExternal: true },
   { name: "Contact", url: "https://crudh.se", isExternal: true },
 ];
@@ -24,11 +25,8 @@ const MenuTogglePath: FC<SVGMotionProps<SVGPathElement>> = (props) => (
 );
 
 const MenuToggle: FC<{ onToggle: () => void }> = ({ onToggle }) => (
-  <button
-    className="absolute top-5 left-5 select-none outline-none"
-    onClick={onToggle}
-  >
-    <svg width="30" height="30" viewBox="0 0 23 23">
+  <button className="absolute top-5 left-5" onClick={onToggle}>
+    <svg width="30" height="30" viewBox="0 0 20 20">
       <MenuTogglePath
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },
@@ -78,7 +76,7 @@ export const Menu: FC = () => {
                     <li>
                       <Link href={url}>
                         <button
-                          className="text-xl text-left pb-5 disabled:opacity-40"
+                          className="text-xl text-left p-1 mb-4 disabled:opacity-40"
                           onClick={() => setIsOpen(false)}
                           disabled={isExternal && isOffLine}
                         >
