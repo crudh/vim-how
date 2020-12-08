@@ -5,6 +5,10 @@ import { useIsOffline } from "../hooks/use-is-offline";
 
 const menuItems = [
   {
+    name: "Start",
+    url: "/",
+  },
+  {
     name: "Cheat sheets",
     url: "/cheatsheets",
   },
