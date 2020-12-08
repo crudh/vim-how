@@ -1,7 +1,7 @@
 import { FC, useState } from "react";
 import { motion, SVGMotionProps } from "framer-motion";
 import Link from "next/link";
-import { isOffLine } from "../utils/environment";
+import { useIsOffline } from "../hooks/use-is-offline";
 
 const menuItems = [
   {
@@ -54,6 +54,7 @@ const MenuToggle: FC<{ onToggle: () => void }> = ({ onToggle }) => (
 
 export const Menu: FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const isOffLine = useIsOffline();
 
   return (
     <>
@@ -79,7 +80,7 @@ export const Menu: FC = () => {
                         <button
                           className="text-xl text-left pb-5 disabled:opacity-40"
                           onClick={() => setIsOpen(false)}
-                          disabled={isExternal && isOffLine()}
+                          disabled={isExternal && isOffLine}
                         >
                           {name}
                         </button>

@@ -1,4 +1,4 @@
-const hasWindow = (): boolean => typeof window !== "undefined";
+export const hasWindow = (): boolean => typeof window !== "undefined";
 
 export const isMac = (): boolean =>
   hasWindow() && window.navigator.platform.toLowerCase().startsWith("mac");
