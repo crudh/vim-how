@@ -43,6 +43,7 @@ export const CommandView: FC<{
         </div>
         <div className="flex items-center">{command.title}</div>
       </div>
+      {command.description && <div className="pt-4">{command.description}</div>}
       {category && (
         <div className="flex justify-end pt-2">
           <Link href={`/categories/${category.id}`}>

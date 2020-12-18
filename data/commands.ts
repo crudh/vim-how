@@ -6,6 +6,7 @@ export type Command = {
   keys: string;
   usesMeta?: boolean;
   title: string;
+  description?: string;
 };
 
 type CommandWithoutId = Omit<Command, "id">;
@@ -35,6 +36,12 @@ const commandList: CommandWithoutId[] = [
     categoryId: "cursormovement",
     keys: "gg",
     title: "Move to first line of the file",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "b",
+    usesMeta: true,
+    title: "Move the cursor up a full screen",
   },
   {
     categoryId: "insertmode",
@@ -67,10 +74,11 @@ const commandList: CommandWithoutId[] = [
     title: "Join line below to the current one",
   },
   {
-    categoryId: "cursormovement",
-    keys: "b",
-    usesMeta: true,
-    title: "Move the cursor up a full screen",
+    categoryId: "copypaste",
+    keys: "yy",
+    title: "Copy line",
+    description:
+      "You can append the command with a number to copy multiple lines. For example 5yy to copy 5 lines.",
   },
 ];
 
