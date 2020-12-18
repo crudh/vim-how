@@ -2,6 +2,7 @@ export type CategoryId =
   | "cursormovement"
   | "insertmode"
   | "editing"
+  | "copypaste"
   | "visualmode";
 
 export type Category = {
@@ -36,6 +37,14 @@ export const categoryList: Category[] = [
     description: "Editing of text while in normal mode",
     descriptionLong:
       "In normal mode you can use these commands for quick editing of text without going into insert mode",
+  },
+  {
+    id: "copypaste",
+    name: "Copy & paste",
+    colorClass: "bg-orange-700",
+    description: "Copy, cut and paste text",
+    descriptionLong:
+      "In normal mode you can use these commands to copy, cut and paste text, whole lines or multiple lines.",
   },
   {
     id: "visualmode",

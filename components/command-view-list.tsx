@@ -11,8 +11,6 @@ export const CommandViewList: FC<{
     return <div className="p-2 text-center">nope, didn&apos;t find that</div>;
   }
 
-  console.log(commands.map((c) => c.id));
-
   return (
     <>
       {commands.map((command, index) => (
