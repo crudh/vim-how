@@ -29,7 +29,11 @@ const MenuTogglePath: FC<SVGMotionProps<SVGPathElement>> = (props) => (
 );
 
 const MenuToggle: FC<{ onToggle: () => void }> = ({ onToggle }) => (
-  <button className="absolute top-5 left-5" onClick={onToggle}>
+  <button
+    className="absolute top-5 left-5"
+    onClick={onToggle}
+    aria-label="Menu button"
+  >
     <svg width="30" height="30" viewBox="0 0 20 20">
       <MenuTogglePath
         variants={{
