@@ -5,7 +5,7 @@ export const SearchInput: FC<{
   onUpdate: (input: string) => void;
 }> = ({ value, onUpdate }) => (
   <input
-    className="p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
+    className="transition duration-300 p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
     placeholder="Search command"
     type="text"
     value={value}

@@ -36,7 +36,7 @@ export const CommandView: FC<{
   const category = showCategory ? categoryById(command.categoryId) : undefined;
 
   return (
-    <div className="p-4 border-gray-900 border-2 rounded-lg">
+    <div className="transition duration-300 p-4 border-gray-900 border-2 rounded-lg hover:border-gray-500">
       <div className="flex">
         <div className="flex pr-2">
           <CommandKeys command={command} />
