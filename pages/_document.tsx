@@ -22,10 +22,6 @@ class MyDocument extends Document {
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap"
-            rel="stylesheet"
-          />
-          <link
             rel="icon"
             type="image/png"
             href="/images/icons/icon-192x192.png"
