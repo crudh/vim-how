@@ -29,20 +29,6 @@ const gradeString = (
     .map((term) => grader(term, source, exactGrade, partialGrade))
     .reduce(sum, 0);
 
-// const gradeStringArray = (
-//   searchTerms: string[],
-//   sources: string[],
-//   exactGrade: number,
-//   partialGrade = 0
-// ): number =>
-//   searchTerms
-//     .map((term) =>
-//       sources
-//         .map((source) => grader(term, source, exactGrade, partialGrade))
-//         .reduce(sum, 0)
-//     )
-//     .reduce(sum, 0);
-
 export const searchCommands = (
   searchInput: string,
   categoryId?: string
@@ -60,6 +46,7 @@ export const searchCommands = (
           : [
               gradeString(searchTerms, command.keys, 500, 100),
               gradeString(searchTerms, command.title, 100, 20),
+              gradeString(searchTerms, command.description ?? "", 10, 5),
               gradeString(
                 searchTerms,
                 categoryById(command.categoryId)?.name ?? "",
