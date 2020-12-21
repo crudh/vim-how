@@ -2,7 +2,7 @@ import { FC } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import { Menu } from "../components/menu";
-import "../styles/index.css";
+import "../../styles/index.css";
 
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
