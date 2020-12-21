@@ -6,7 +6,7 @@ import { categoryById } from "../utils/categories";
 import { isMac } from "../utils/environment";
 
 const CommandKey: React.FC = ({ children }) => (
-  <div className="text-4xl bg-white text-black pl-3 pr-3 rounded-lg mr-2">
+  <div className="text-3xl bg-white text-black pl-3 pr-3 rounded-lg mr-2">
     {children}
   </div>
 );
@@ -14,7 +14,7 @@ const CommandKey: React.FC = ({ children }) => (
 const MetaKey: React.FC = () => (
   <>
     <CommandKey>{isMac() ? "\u2318" : "Ctrl"}</CommandKey>
-    <div className="text-4xl mr-2">+</div>
+    <div className="text-3xl mr-2">+</div>
   </>
 );
 
@@ -38,10 +38,10 @@ export const CommandView: FC<{
   return (
     <div className="transition duration-300 p-4 border-gray-900 border-2 rounded-lg hover:border-gray-500">
       <div className="flex">
-        <div className="flex pr-2">
+        <div className="flex pr-2 items-baseline">
           <CommandKeys command={command} />
         </div>
-        <div className="flex items-center">{command.title}</div>
+        <div className="flex items-center text-lg">{command.title}</div>
       </div>
       {command.description && <div className="pt-4">{command.description}</div>}
       {category && (

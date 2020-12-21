@@ -76,7 +76,7 @@ const commandList: CommandWithoutId[] = [
   {
     categoryId: "copypaste",
     keys: "yy",
-    title: "Copy line",
+    title: "Copy/yank line",
     description:
       "You can append the command with a number to copy multiple lines. For example 5yy to copy 5 lines.",
   },
