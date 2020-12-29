@@ -1,7 +1,10 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const withPWA = require("next-pwa");
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
 
-module.exports = withPWA({
+const nextConfig = {
   pwa: {
     disable: process.env.NODE_ENV === "development",
     dest: "public",
@@ -18,4 +21,6 @@ module.exports = withPWA({
       },
     ];
   },
-});
+};
+
+module.exports = withBundleAnalyzer(withPWA(nextConfig));
