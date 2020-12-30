@@ -16,7 +16,7 @@ const StartPage: FC = () => {
   const results = useMemo(() => searchCommands(search), [search]);
   const showCategories = search === "";
 
-  const handleUpdateSearch = (input: string) => {
+  const handleUpdateSearch = (input: string) =>
     router.replace(
       {
         pathname: router.pathname,
@@ -25,7 +25,6 @@ const StartPage: FC = () => {
       undefined,
       { shallow: true }
     );
-  };
 
   return (
     <>

@@ -32,7 +32,7 @@ const CategoryPage: FC = () => {
       ? commandsByCategoryId(categoryId)
       : searchCommands(search, categoryId);
 
-  const handleUpdateSearch = (input: string) => {
+  const handleUpdateSearch = (input: string) =>
     router.replace(
       {
         pathname: router.pathname,
@@ -41,7 +41,6 @@ const CategoryPage: FC = () => {
       undefined,
       { shallow: true }
     );
-  };
 
   return (
     <>
