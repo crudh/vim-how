@@ -6,21 +6,25 @@ import { CategoryBox } from "../components/category-box";
 import { CommandViewList } from "../components/command-view-list";
 import { categoryList } from "../data/categories";
 import { searchCommands } from "../utils/commands";
-import { queryParamAsString } from "../utils/routes";
 import { SearchInput } from "../components/search-input";
+import { useQuery } from "../hooks/use-query";
 
 const StartPage: FC = () => {
   const router = useRouter();
-  const search = queryParamAsString(router.query.search);
+  const { search = "" } = useQuery(router);
 
   const results = useMemo(() => searchCommands(search), [search]);
   const showCategories = search === "";
 
-  const handleUpdateSearch = (input: string) => {
-    const path = input === "" ? "/" : `/?search=${input}`;
-
-    router.push(encodeURI(path), undefined, { shallow: true });
-  };
+  const handleUpdateSearch = (input: string) =>
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: { search: input },
+      },
+      undefined,
+      { shallow: true }
+    );
 
   return (
     <>
