@@ -8,8 +8,8 @@ import { LinkButton } from "../../components/link-button";
 import { categoryList } from "../../data/categories";
 import { categoryById } from "../../utils/categories";
 import { commandsByCategoryId, searchCommands } from "../../utils/commands";
-import { queryParamAsString } from "../../utils/routes";
 import { SearchInput } from "../../components/search-input";
+import { useQuery } from "../../hooks/use-query";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
@@ -22,8 +22,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 const CategoryPage: FC = () => {
   const router = useRouter();
-  const search = queryParamAsString(router.query.search);
-  const categoryId = queryParamAsString(router.query.id);
+  const { id: categoryId, search = "" } = useQuery(router);
   const category = categoryById(categoryId);
 
   if (!category) return null;
@@ -34,12 +33,14 @@ const CategoryPage: FC = () => {
       : searchCommands(search, categoryId);
 
   const handleUpdateSearch = (input: string) => {
-    const path =
-      input === ""
-        ? `/categories/${categoryId}`
-        : `/categories/${categoryId}?search=${input}`;
-
-    router.push(encodeURI(path), undefined, { shallow: true });
+    router.replace(
+      {
+        pathname: router.pathname,
+        query: { id: categoryId, search: input },
+      },
+      undefined,
+      { shallow: true }
+    );
   };
 
   return (
