@@ -76,9 +76,79 @@ const commandList: CommandWithoutId[] = [
   {
     categoryId: "copypaste",
     keys: "yy",
-    title: "Copy/yank line",
+    title: "Copy (yank) line",
     description:
       "You can append the command with a number to copy multiple lines. For example 5yy to copy 5 lines.",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "yw",
+    title: "Copy (yank) from the cursor to the next word",
+    description:
+      "A combination of 'y' (for copy) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "y$",
+    title: "Copy (yank) from the cursor to the end of the line",
+    description:
+      "A combination of 'y' (for copy) with '$' (for the end of the line).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "y0",
+    title: "Copy (yank) from the cursor to the beginning of the line",
+    description:
+      "A combination of 'y' (for copy) with '$' (for the beginning of the line).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "dd",
+    title: "Cut (delete) line",
+    description:
+      "You can append the command with a number to cut multiple lines. For example 5dd to cut 5 lines.",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "dw",
+    title: "Cut (delete) from the cursor to the next word",
+    description:
+      "A combination of 'd' (for cut) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "d$",
+    title: "Cut (delete) from the cursor to the end of the line",
+    description:
+      "A combination of 'd' (for cut) with '$' (for the end of the line).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "d0",
+    title: "Cut (delete) from the cursor to the beginning of the line",
+    description:
+      "A combination of 'd' (for cut) with '0' (for the beginning of the line).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "D",
+    title: "Cut (delete) from the cursor to the end of the line",
+    description: "A shorter form of 'd$'.",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "x",
+    title: "Cut (delete) a single character",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "p",
+    title: "Paste (put) after the cursor",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "P",
+    title: "Paste (put) before the cursor",
   },
 ];
 
