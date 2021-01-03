@@ -2,21 +2,7 @@ import { FC, useState } from "react";
 import { motion, SVGMotionProps } from "framer-motion";
 import Link from "next/link";
 import { useIsOffline } from "../hooks/use-is-offline";
-
-const menuItems = [
-  {
-    name: "Start",
-    url: "/",
-  },
-  {
-    name: "Cheat sheets",
-    url: "/cheatsheets",
-  },
-  { name: "Tutorials", url: "/tutorials" },
-  { name: "Editors", url: "/editors" },
-  { name: "GitHub", url: "https://github.com/crudh/vim-how", isExternal: true },
-  { name: "Contact", url: "https://crudh.se", isExternal: true },
-];
+import { menuItems } from "../data/menu-items";
 
 const MenuTogglePath: FC<SVGMotionProps<SVGPathElement>> = (props) => (
   <motion.path
@@ -72,9 +58,19 @@ export const Menu: FC = () => {
           <div className="absolute top-20 left-10">
             <ul className="list-inside">
               {(isOpen ? menuItems : []).map(
-                ({ name, url, isExternal }, index) => (
+                (
+                  {
+                    name,
+                    url,
+                    isExternal = false,
+                    isSubItem = false,
+                    spaceAbove = false,
+                  },
+                  index
+                ) => (
                   <motion.div
                     key={index}
+                    className={spaceAbove ? "pt-6" : ""}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{
@@ -84,7 +80,9 @@ export const Menu: FC = () => {
                     <li>
                       <Link href={url}>
                         <button
-                          className="text-xl text-left p-1 mb-4 disabled:opacity-40"
+                          className={`${
+                            isSubItem ? "text-m pl-4" : "text-xl"
+                          } text-left p-1 mb-4 disabled:opacity-40`}
                           onClick={() => setIsOpen(false)}
                           disabled={isExternal && isOffLine}
                         >

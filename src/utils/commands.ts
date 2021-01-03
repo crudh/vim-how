@@ -1,5 +1,5 @@
 import { commands, Command } from "../data/commands";
-import { categoryById } from "./categories";
+import { categoryById } from "../data/categories";
 
 const commandList = Object.values(commands);
 
