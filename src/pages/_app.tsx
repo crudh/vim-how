@@ -9,7 +9,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
     <Head>
       <title key="title">vim.how</title>
       <meta
-        name="Description"
+        name="description"
+        content="A searchable catalog of vim commands organized by category. It can be installed and works offline."
+      />
+      <meta
+        name="keywords"
         content="vim.how vim vi how howto command commands search documentation help"
       />
       <meta name="theme-color" content="#000000" />
