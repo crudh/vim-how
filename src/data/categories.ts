@@ -28,7 +28,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-red-700",
     description: "Go into insert mode in different ways",
     descriptionLong:
-      "From the normal mode you can use these commands to jump into insert mode in different ways. Insert mode is where you enter text similar to a regular text editor.",
+      "From the normal mode you can use these commands to jump into insert mode in different ways. Insert mode is where you enter text similar to a regular text editor. Use the escape key to go back to normal mode.",
   },
   {
     id: "editing",
@@ -52,7 +52,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-pink-700",
     description: "Selecting text in different ways",
     descriptionLong:
-      "You use visual mode to select text in different ways. You can then use different commands to affect the text.",
+      "You use visual mode to select text in different ways. You can then use different commands to affect the text, for example copy or cut. Use the escape key to go back to normal mode.",
   },
 ];
 
