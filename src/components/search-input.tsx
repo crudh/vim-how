@@ -7,7 +7,7 @@ export const SearchInput: FC<{
   <input
     className="transition duration-300 p-2 text-black border-gray-500 border-2 outline-none rounded-lg hover:border-white focus:border-white"
     placeholder="Search command"
-    type="text"
+    type="search"
     value={value}
     onChange={(event) => onUpdate(event.target.value)}
     aria-label="Search"
