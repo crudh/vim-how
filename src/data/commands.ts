@@ -237,6 +237,31 @@ const commandList: CommandWithoutId[] = [
     keys: "P",
     title: "Paste (put) before the cursor",
   },
+  {
+    categoryId: "visualmode",
+    keys: "v",
+    title: "Start visual mode",
+    description:
+      "Select text character by character. This is similar to standard text selection in other editors.",
+  },
+  {
+    categoryId: "visualmode",
+    keys: "V",
+    title: "Start line based visual mode",
+    description: "Select text line by line.",
+  },
+  {
+    categoryId: "visualmode",
+    keys: "v",
+    usesMeta: true,
+    title: "Start block based visual mode",
+    description: "Select text by defining a box.",
+  },
+  {
+    categoryId: "visualmode",
+    keys: "o",
+    title: "Move to the other end of the selection",
+  },
 ];
 
 export type Commands = {
