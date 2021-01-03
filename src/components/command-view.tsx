@@ -3,7 +3,6 @@ import Link from "next/link";
 import { CategoryBox } from "./category-box";
 import { Command } from "../data/commands";
 import { categoryById } from "../data/categories";
-import { isMac } from "../utils/environment";
 
 const CommandKey: React.FC = ({ children }) => (
   <div className="text-3xl bg-white text-black pl-3 pr-3 rounded-lg mr-2">
@@ -13,7 +12,7 @@ const CommandKey: React.FC = ({ children }) => (
 
 const MetaKey: React.FC = () => (
   <>
-    <CommandKey>{isMac() ? "\u2318" : "Ctrl"}</CommandKey>
+    <CommandKey>Ctrl</CommandKey>
     <div className="text-3xl mr-2">+</div>
   </>
 );
