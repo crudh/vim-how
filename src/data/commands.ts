@@ -67,11 +67,84 @@ const commandList: CommandWithoutId[] = [
     categoryId: "editing",
     keys: "r",
     title: "Replace a single character",
+    description: "This will not start insert mode",
+  },
+  {
+    categoryId: "editing",
+    keys: "s",
+    title: "Delete a character and replace it",
+    description:
+      "After the character is deleted insert mode will start for replacement.",
+  },
+  {
+    categoryId: "editing",
+    keys: "cc",
+    title: "Replace (change) line",
+    description:
+      "You can append the command with a number to replace multiple lines. For example 5cc to replace 5 lines.",
+  },
+  {
+    categoryId: "editing",
+    keys: "S",
+    title: "Replace (change) line",
+    description: "A shorter form of 'cc'.",
+  },
+  {
+    categoryId: "editing",
+    keys: "cw",
+    title: "Replace (change) from the cursor to the next word",
+    description:
+      "A combination of 'c' (for replace) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "editing",
+    keys: "cb",
+    title: "Replace (change) from the cursor to the previous word",
+    description:
+      "A combination of 'c' (for replace) with 'b' (for the beginning of the previous word).",
+  },
+  {
+    categoryId: "editing",
+    keys: "c$",
+    title: "Replace (change) from the cursor to the end of the line",
+    description:
+      "A combination of 'c' (for replace) with '$' (for the end of the line).",
+  },
+  {
+    categoryId: "editing",
+    keys: "C",
+    title: "Replace (change) from the cursor to the end of the line",
+    description: "A shorter form of 'c$'.",
+  },
+  {
+    categoryId: "editing",
+    keys: "c0",
+    title: "Replace (change) from the cursor to the beginning of the line",
+    description:
+      "A combination of 'c' (for replace) with '$' (for the beginning of the line).",
   },
   {
     categoryId: "editing",
     keys: "J",
     title: "Join line below to the current one",
+    description:
+      "The current line and the line below will be joined to form a single line with a space between.",
+  },
+  {
+    categoryId: "editing",
+    keys: ".",
+    title: "Repeat the last command",
+  },
+  {
+    categoryId: "editing",
+    keys: "u",
+    title: "Undo",
+  },
+  {
+    categoryId: "editing",
+    keys: "r",
+    usesMeta: true,
+    title: "Redo",
   },
   {
     categoryId: "copypaste",
@@ -89,6 +162,13 @@ const commandList: CommandWithoutId[] = [
   },
   {
     categoryId: "copypaste",
+    keys: "yb",
+    title: "Copy (yank) from the cursor to the previous word",
+    description:
+      "A combination of 'y' (for copy) with 'b' (for the beginning of the previous word).",
+  },
+  {
+    categoryId: "copypaste",
     keys: "y$",
     title: "Copy (yank) from the cursor to the end of the line",
     description:
@@ -99,7 +179,7 @@ const commandList: CommandWithoutId[] = [
     keys: "y0",
     title: "Copy (yank) from the cursor to the beginning of the line",
     description:
-      "A combination of 'y' (for copy) with '$' (for the beginning of the line).",
+      "A combination of 'y' (for copy) with '0' (for the beginning of the line).",
   },
   {
     categoryId: "copypaste",
@@ -114,6 +194,13 @@ const commandList: CommandWithoutId[] = [
     title: "Cut (delete) from the cursor to the next word",
     description:
       "A combination of 'd' (for cut) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "db",
+    title: "Cut (delete) from the cursor to the previous word",
+    description:
+      "A combination of 'd' (for cut) with 'b' (for the beginning of the previous word).",
   },
   {
     categoryId: "copypaste",
@@ -156,8 +243,8 @@ export type Commands = {
   [id: number]: Command;
 };
 
-const createCommandId = (command: CommandWithoutId) =>
-  `${command.categoryId}-${command.keys}`;
+const createCommandId = ({ categoryId, keys, usesMeta }: CommandWithoutId) =>
+  `${categoryId}-${keys}-${usesMeta}`;
 
 export const commands: Commands = commandList.reduce((acc, cur) => {
   const id = createCommandId(cur);

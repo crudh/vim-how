@@ -20,7 +20,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-blue-700",
     description: "Move the cursor in normal mode",
     descriptionLong:
-      "In normal mode you can use these commands to move the cursor around",
+      "In normal mode you can use these commands to move the cursor around.",
   },
   {
     id: "insertmode",
@@ -28,7 +28,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-red-700",
     description: "Go into insert mode in different ways",
     descriptionLong:
-      "From the normal mode you can use these commands to jump into insert mode in different ways. Insert mode is where you enter text similar to a regular text editor",
+      "From the normal mode you can use these commands to jump into insert mode in different ways. Insert mode is where you enter text similar to a regular text editor.",
   },
   {
     id: "editing",
@@ -36,7 +36,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-green-700",
     description: "Editing of text while in normal mode",
     descriptionLong:
-      "In normal mode you can use these commands for quick editing of text without going into insert mode",
+      "In normal mode you can use these commands for both quick editing of text, without going into insert mode, or to initiate insert mode after making a specific edit.",
   },
   {
     id: "copypaste",
@@ -52,7 +52,7 @@ export const categoryList: Category[] = [
     colorClass: "bg-pink-700",
     description: "Selecting text in different ways",
     descriptionLong:
-      "You use visual mode to select text in different ways. You can then use different commands to affect the text",
+      "You use visual mode to select text in different ways. You can then use different commands to affect the text.",
   },
 ];
 
