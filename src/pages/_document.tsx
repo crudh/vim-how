@@ -31,6 +31,18 @@ class MyDocument extends Document {
             type="image/png"
             href="/images/icons/icon-192x192.png"
           />
+          <link
+            rel="preload"
+            href="/fonts/uU9NCBsR6Z2vfE9aq3bh09SDqFGedCMX.woff2"
+            as="font"
+            crossOrigin="anonymous"
+          />
+          <link
+            rel="preload"
+            href="/fonts/uU9NCBsR6Z2vfE9aq3bh3dSDqFGedA.woff2"
+            as="font"
+            crossOrigin="anonymous"
+          />
           {process.env.VERCEL_ENV === "production" ? (
             <script async data-api="/_hive" src="/bee.js"></script>
           ) : null}
