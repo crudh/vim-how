@@ -15,7 +15,7 @@ export const menuItems: MenuItem[] = [
   },
   ...categoryList.map((category) => ({
     name: category.name,
-    url: `/category/${category.id}`,
+    url: `/categories/${category.id}`,
     isSubItem: true,
   })),
   {
