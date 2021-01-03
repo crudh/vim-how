@@ -36,11 +36,11 @@ export const CommandView: FC<{
 
   return (
     <div className="transition duration-300 p-4 border-gray-900 border-2 rounded-lg hover:border-gray-500">
-      <div className="flex">
-        <div className="flex pr-2 items-baseline">
+      <div className="flex flex-wrap md:flex-nowrap">
+        <div className="flex pr-2 pb-2 items-baseline">
           <CommandKeys command={command} />
         </div>
-        <div className="flex items-center text-lg">{command.title}</div>
+        <div className="flex items-center text-lg pb-2">{command.title}</div>
       </div>
       {command.description && (
         <div className="pt-4 text-gray-400">{command.description}</div>
