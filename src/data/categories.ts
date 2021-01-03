@@ -64,3 +64,6 @@ export const categories: Categories = categoryList.reduce(
   (acc, cur) => ({ ...acc, [cur.id]: cur }),
   {}
 );
+
+export const categoryById = (id: string): Category | undefined =>
+  categories[id];

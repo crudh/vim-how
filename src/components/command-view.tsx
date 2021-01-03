@@ -2,7 +2,7 @@ import { FC } from "react";
 import Link from "next/link";
 import { CategoryBox } from "./category-box";
 import { Command } from "../data/commands";
-import { categoryById } from "../utils/categories";
+import { categoryById } from "../data/categories";
 import { isMac } from "../utils/environment";
 
 const CommandKey: React.FC = ({ children }) => (
