@@ -70,6 +70,41 @@ const commandList: CommandWithoutId[] = [
   },
   {
     categoryId: "editing",
+    keys: "cc",
+    title: "Replace (change) line",
+    description:
+      "You can append the command with a number to replace multiple lines. For example 5cc to replace 5 lines.",
+  },
+  {
+    categoryId: "editing",
+    keys: "cw",
+    title: "Replace (change) from the cursor to the next word",
+    description:
+      "A combination of 'c' (for replace) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "editing",
+    keys: "cb",
+    title: "Replace (change) from the cursor to the previous word",
+    description:
+      "A combination of 'c' (for replace) with 'b' (for the beginning of the previous word).",
+  },
+  {
+    categoryId: "editing",
+    keys: "c$",
+    title: "Replace (change) from the cursor to the end of the line",
+    description:
+      "A combination of 'c' (for replace) with '$' (for the end of the line).",
+  },
+  {
+    categoryId: "editing",
+    keys: "c0",
+    title: "Replace (change) from the cursor to the beginning of the line",
+    description:
+      "A combination of 'c' (for replace) with '$' (for the beginning of the line).",
+  },
+  {
+    categoryId: "editing",
     keys: "J",
     title: "Join line below to the current one",
   },
@@ -89,6 +124,13 @@ const commandList: CommandWithoutId[] = [
   },
   {
     categoryId: "copypaste",
+    keys: "yb",
+    title: "Copy (yank) from the cursor to the previous word",
+    description:
+      "A combination of 'y' (for copy) with 'b' (for the beginning of the previous word).",
+  },
+  {
+    categoryId: "copypaste",
     keys: "y$",
     title: "Copy (yank) from the cursor to the end of the line",
     description:
@@ -99,7 +141,7 @@ const commandList: CommandWithoutId[] = [
     keys: "y0",
     title: "Copy (yank) from the cursor to the beginning of the line",
     description:
-      "A combination of 'y' (for copy) with '$' (for the beginning of the line).",
+      "A combination of 'y' (for copy) with '0' (for the beginning of the line).",
   },
   {
     categoryId: "copypaste",
@@ -114,6 +156,13 @@ const commandList: CommandWithoutId[] = [
     title: "Cut (delete) from the cursor to the next word",
     description:
       "A combination of 'd' (for cut) with 'w' (for the beginning of the next word).",
+  },
+  {
+    categoryId: "copypaste",
+    keys: "db",
+    title: "Cut (delete) from the cursor to the previous word",
+    description:
+      "A combination of 'd' (for cut) with 'b' (for the beginning of the previous word).",
   },
   {
     categoryId: "copypaste",
