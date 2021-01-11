@@ -18,7 +18,7 @@ class MyDocument extends Document {
 
   render(): ReactElement {
     return (
-      <Html lang="en">
+      <Html lang="en" style={{ backgroundColor: "black" }}>
         <Head>
           <link rel="manifest" href="/manifest.json" />
           <link

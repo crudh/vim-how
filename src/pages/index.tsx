@@ -25,7 +25,7 @@ const StartPage: FC = () => {
               <motion.div
                 key={category.id}
                 className="p-2"
-                initial={{ opacity: 0 }}
+                initial={{ opacity: 0.1 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.2 * (index + 1) }}
               >
