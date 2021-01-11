@@ -9,6 +9,7 @@ import { categoryList, categoryById } from "../../data/categories";
 import { commandsByCategoryId, searchCommands } from "../../utils/commands";
 import { SearchInput } from "../../components/search-input";
 import { useQuery } from "../../hooks/use-query";
+import { useCommandSearch } from "../../hooks/use-command-search";
 
 export const getStaticProps: GetStaticProps = async () => ({ props: {} });
 
@@ -21,9 +22,10 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 const CategoryPage: FC = () => {
   const router = useRouter();
-  const { id: categoryId, search = "" } = useQuery(router);
-  const category = categoryById(categoryId);
+  const { id: categoryId } = useQuery(router);
+  const [search, input, setInput] = useCommandSearch({ id: categoryId });
 
+  const category = categoryById(categoryId);
   if (!category) return null;
 
   const commands =
@@ -31,22 +33,12 @@ const CategoryPage: FC = () => {
       ? commandsByCategoryId(categoryId)
       : searchCommands(search, categoryId);
 
-  const handleUpdateSearch = (input: string) =>
-    router.replace(
-      {
-        pathname: router.pathname,
-        query: { id: categoryId, search: input },
-      },
-      undefined,
-      { shallow: true }
-    );
-
   return (
     <>
       <Head>
         <title key="title">vim.how - {category.name}</title>
       </Head>
-      <SearchInput value={search} onUpdate={handleUpdateSearch} />
+      <SearchInput value={input} onUpdate={setInput} />
       <div className="flex flex-col items-center pt-8 pb-8">
         <LinkButton label="Back" to="/" />
       </div>
