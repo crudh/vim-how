@@ -33,12 +33,6 @@ class MyDocument extends Document {
           />
           <link
             rel="preload"
-            href="/fonts/uU9NCBsR6Z2vfE9aq3bh09SDqFGedCMX.woff2"
-            as="font"
-            crossOrigin="anonymous"
-          />
-          <link
-            rel="preload"
             href="/fonts/uU9NCBsR6Z2vfE9aq3bh3dSDqFGedA.woff2"
             as="font"
             crossOrigin="anonymous"

@@ -1,34 +1,22 @@
 import { FC, useMemo } from "react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { motion } from "framer-motion";
 import { CategoryBox } from "../components/category-box";
 import { CommandViewList } from "../components/command-view-list";
 import { categoryList } from "../data/categories";
 import { searchCommands } from "../utils/commands";
 import { SearchInput } from "../components/search-input";
-import { useQuery } from "../hooks/use-query";
+import { useCommandSearch } from "../hooks/use-command-search";
 
 const StartPage: FC = () => {
-  const router = useRouter();
-  const { search = "" } = useQuery(router);
+  const [search, input, setInput] = useCommandSearch();
 
   const results = useMemo(() => searchCommands(search), [search]);
   const showCategories = search === "";
 
-  const handleUpdateSearch = (input: string) =>
-    router.replace(
-      {
-        pathname: router.pathname,
-        query: { search: input },
-      },
-      undefined,
-      { shallow: true }
-    );
-
   return (
     <>
-      <SearchInput value={search} onUpdate={handleUpdateSearch} />
+      <SearchInput value={input} onUpdate={setInput} />
       {showCategories ? (
         <>
           <h2 className="pt-8 pb-8 uppercase">Categories</h2>
