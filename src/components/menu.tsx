@@ -6,6 +6,7 @@ import { AppearAnimation } from "./appear-animation";
 
 const MenuTogglePath: FC<SVGProps<SVGPathElement>> = (props) => (
   <path
+    className="transition-all duration-500"
     fill="transparent"
     strokeWidth="3"
     stroke="hsl(0, 0%, 100%)"
@@ -24,27 +25,10 @@ const MenuToggle: FC<{ isOpen: boolean; onToggle: () => void }> = ({
     aria-label="Menu button"
   >
     <svg width="30" height="30" viewBox="0 0 20 20">
-      <MenuTogglePath
-        d={isOpen ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5"}
-        // variants={{
-        //   closed: { d: "M 2 2.5 L 20 2.5" },
-        //   open: { d: "M 3 16.5 L 17 2.5" },
-        // }}
-      />
-      <MenuTogglePath
-        d="M 2 9.423 L 20 9.423"
-        opacity={isOpen ? 0 : 1}
-        // variants={{
-        //   closed: { opacity: 1 },
-        //   open: { opacity: 0 },
-        // }}
-      />
+      <MenuTogglePath d={isOpen ? "M 3 16.5 L 17 2.5" : "M 2 2.5 L 20 2.5"} />
+      <MenuTogglePath d="M 2 9.423 L 20 9.423" opacity={isOpen ? 0 : 1} />
       <MenuTogglePath
         d={isOpen ? "M 3 2.5 L 17 16.346" : "M 2 16.346 L 20 16.346"}
-        // variants={{
-        //   closed: { d: "M 2 16.346 L 20 16.346" },
-        //   open: { d: "M 3 2.5 L 17 16.346" },
-        // }}
       />
     </svg>
   </button>
