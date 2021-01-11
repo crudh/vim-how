@@ -10,7 +10,6 @@
     "analyze": "cross-env ANALYZE=true next build"
   },
   "dependencies": {
-    "framer-motion": "^3.2.1",
     "next": "^10.0.5",
     "next-pwa": "^5.0.2",
     "react": "^17.0.1",

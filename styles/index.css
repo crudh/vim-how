@@ -14,3 +14,7 @@ h2 {
 h3 {
   @apply text-xl;
 }
+
+.w-px-300 {
+  width: 300px;
+}
