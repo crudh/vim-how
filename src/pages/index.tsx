@@ -1,12 +1,12 @@
 import { FC, useMemo } from "react";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { CategoryBox } from "../components/category-box";
 import { CommandViewList } from "../components/command-view-list";
 import { categoryList } from "../data/categories";
 import { searchCommands } from "../utils/commands";
 import { SearchInput } from "../components/search-input";
 import { useCommandSearch } from "../hooks/use-command-search";
+import { AppearAnimation } from "../components/appear-animation";
 
 const StartPage: FC = () => {
   const [search, input, setInput] = useCommandSearch();
@@ -22,12 +22,14 @@ const StartPage: FC = () => {
           <h2 className="pt-8 pb-8 uppercase">Categories</h2>
           <div className="max-w-xl">
             {categoryList.map((category, index) => (
-              <motion.div
+              <AppearAnimation
                 key={category.id}
-                className="p-2"
-                initial={{ opacity: 0.1 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.2 * (index + 1) }}
+                fromClassName="opacity-10"
+                toClassName="opacity-100"
+                className={`p-2 transition-all duration-${Math.min(
+                  200 * (index + 1),
+                  2000
+                )}`}
               >
                 <Link href={`/categories/${category.id}`}>
                   <a>
@@ -37,7 +39,7 @@ const StartPage: FC = () => {
                     </CategoryBox>
                   </a>
                 </Link>
-              </motion.div>
+              </AppearAnimation>
             ))}
           </div>
         </>

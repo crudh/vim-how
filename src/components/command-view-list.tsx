@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { motion } from "framer-motion";
 import { CommandView } from "./command-view";
 import { Command } from "../data/commands";
+import { AppearAnimation } from "./appear-animation";
 
 export const CommandViewList: FC<{
   commands: Command[];
@@ -14,17 +14,17 @@ export const CommandViewList: FC<{
   return (
     <>
       {commands.map((command, index) => (
-        <motion.div
+        <AppearAnimation
           key={command.id}
-          className="p-2"
-          initial={{ opacity: 0.1 }}
-          animate={{ opacity: 1 }}
-          transition={{
-            duration: 0.2 * (index + 1),
-          }}
+          fromClassName="opacity-10"
+          toClassName="opacity-100"
+          className={`p-2 transition-all duration-${Math.min(
+            200 * (index + 1),
+            2000
+          )}`}
         >
           <CommandView command={command} showCategory={showCategory} />
-        </motion.div>
+        </AppearAnimation>
       ))}
     </>
   );

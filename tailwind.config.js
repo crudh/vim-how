@@ -15,11 +15,6 @@ module.exports = {
       red: colors.red,
       pink: colors.pink,
     },
-    extend: {
-      fontFamily: {
-        fira: ["Fira Code"],
-      },
-    },
     fontSize: {
       xs: "0.75rem",
       sm: "0.875rem",
@@ -31,6 +26,21 @@ module.exports = {
       "4xl": "2.25rem",
       "5xl": "3rem",
       "6xl": "4rem",
+    },
+    extend: {
+      fontFamily: {
+        fira: ["Fira Code"],
+      },
+      transitionDuration: {
+        400: "400ms",
+        600: "600ms",
+        800: "800ms",
+        1200: "1200ms",
+        1400: "1400ms",
+        1600: "1600ms",
+        1800: "1800ms",
+        2000: "2000ms",
+      },
     },
   },
   variants: {
