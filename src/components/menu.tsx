@@ -64,7 +64,7 @@ export const Menu: FC = () => {
                   toClassName="opacity-100"
                   className={`${
                     spaceAbove ? "pt-6" : ""
-                  } transition-all duration-${Math.min(
+                  } transition-opacity duration-${Math.min(
                     200 * (index + 1),
                     2000
                   )}`}
