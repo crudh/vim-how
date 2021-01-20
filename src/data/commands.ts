@@ -56,12 +56,22 @@ const commandList: CommandWithoutId[] = [
   {
     categoryId: "insertmode",
     keys: "a",
-    title: "Insert after the cursor",
+    title: "Insert (append) after the cursor",
   },
   {
     categoryId: "insertmode",
     keys: "A",
-    title: "Insert at the end of the line",
+    title: "Insert (append) at the end of the line",
+  },
+  {
+    categoryId: "insertmode",
+    keys: "o",
+    title: "Insert (open) a new line below the current line",
+  },
+  {
+    categoryId: "insertmode",
+    keys: "O",
+    title: "Insert (open) a new line above the current line",
   },
   {
     categoryId: "editing",
