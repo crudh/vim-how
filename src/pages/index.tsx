@@ -26,7 +26,7 @@ const StartPage: FC = () => {
                 key={category.id}
                 fromClassName="opacity-10"
                 toClassName="opacity-100"
-                className={`p-2 transition-all duration-${Math.min(
+                className={`p-2 transition-opacity duration-${Math.min(
                   200 * (index + 1),
                   2000
                 )}`}
