@@ -4,8 +4,8 @@ export type Command = {
   id: string;
   categoryId: CategoryId;
   keys: string;
-  usesMeta?: boolean;
   title: string;
+  usesMeta?: boolean;
   description?: string;
 };
 
@@ -15,33 +15,192 @@ const commandList: CommandWithoutId[] = [
   {
     categoryId: "cursormovement",
     keys: "h",
-    title: "Move cursor left",
+    title: "Move the cursor left",
   },
   {
     categoryId: "cursormovement",
     keys: "j",
-    title: "Move cursor down",
+    title: "Move the cursor down",
   },
   {
     categoryId: "cursormovement",
     keys: "k",
-    title: "Move cursor up",
+    title: "Move the cursor up",
   },
   {
     categoryId: "cursormovement",
     keys: "l",
-    title: "Move cursor right",
+    title: "Move the cursor right",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "w",
+    title: "Move the cursor forward to the start of the next word",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "W",
+    title: "Move the cursor forward to the start of the next word",
+    description: "The same as 'w' but it ignores punctuation.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "e",
+    title: "Move the cursor forward to the end of the next word",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "E",
+    title: "Move the cursor forward to the end of the next word",
+    description: "The same as 'e' but it ignores punctuation.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "b",
+    title: "Move the cursor back to the start of the previous word",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "B",
+    title: "Move the cursor back to the start of the previous word",
+    description: "The same as 'b' but it ignores punctuation.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "0",
+    title: "Move the cursor to the start of the line",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "$",
+    title: "Move the cursor to the end of the line",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "^",
+    title: "Move the cursor to the first non blank character of the line",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "g_",
+    title: "Move the cursor to the last non blank character of the line",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "%",
+    title: "Move the cursor to the matching character in a pair",
+    description: "Default supported pairs are (), {} and [].",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "}",
+    title: "Move the cursor to the next paragraph",
+    description: "When editing code it also supports functions and blocks.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "{",
+    title: "Move the cursor to the previous paragraph",
+    description: "When editing code it also supports functions and blocks.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "fx",
+    title: "Move the cursor to the next occurence of character x",
+    description: "The character x can be replaced with any character.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "Fx",
+    title: "Move the cursor to the previous occurence of character x",
+    description: "The character x can be replaced with any character.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "tx",
+    title: "Move the cursor to before the next occurence of character x",
+    description: "The character x can be replaced with any character.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "Tx",
+    title: "Move the cursor to after the previous occurence of character x",
+    description: "The character x can be replaced with any character.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "H",
+    title: "Move the cursor to the top of the screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "M",
+    title: "Move the cursor to the middle of the screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "L",
+    title: "Move the cursor to the bottom of the screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "3G",
+    title: "Move the cursor to a specified line",
+    description: "In this example the cursor is moved to line 3.",
   },
   {
     categoryId: "cursormovement",
     keys: "gg",
-    title: "Move to first line of the file",
+    title: "Move the cursor to the first line of the file",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "G",
+    title: "Move the cursor to the last line of the file",
   },
   {
     categoryId: "cursormovement",
     keys: "b",
     usesMeta: true,
     title: "Move the cursor up a full screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "u",
+    usesMeta: true,
+    title: "Move the cursor up a half screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "f",
+    usesMeta: true,
+    title: "Move the cursor down a full screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "d",
+    usesMeta: true,
+    title: "Move the cursor down a half screen",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "zz",
+    title: "Center the screen on the cursor",
+    description: "This will not move the cursor, only the view.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "e",
+    usesMeta: true,
+    title: "Move the screen down one line",
+    description: "This will not move the cursor, only the view.",
+  },
+  {
+    categoryId: "cursormovement",
+    keys: "y",
+    usesMeta: true,
+    title: "Move the screen up one line",
+    description: "This will not move the cursor, only the view.",
   },
   {
     categoryId: "insertmode",
