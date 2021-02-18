@@ -7,7 +7,7 @@ import "../../styles/index.css";
 const App: FC<AppProps> = ({ Component, pageProps }) => (
   <>
     <Head>
-      <title key="title">vim.how</title>
+      <title key="title">vim.how - searchable vim command catalog</title>
       <meta
         name="description"
         content="A searchable catalog of vim commands organized by category. It can be installed and works offline."
