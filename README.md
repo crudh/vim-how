@@ -20,20 +20,14 @@ npm i
 npm run dev
 ```
 
+And go to [http://localhost:3000/](http://localhost:3000/)
+
+## Preview production mode
+
+```
+npm run preview
+```
+
 And go to [http://localhost:4000/](http://localhost:4000/)
 
-## Build a production bundle
-
-```
-npm run build
-```
-
-## Run in production mode
-
-First build a production bundle, then:
-
-```
-npm run start
-```
-
-And go to [http://localhost:3000/](http://localhost:3000/)
+This will build the production bundle and run the server in production mode. But it will use port 4000 so the service worker doesn't interfer with the dev mode (which runs without a service worker).
