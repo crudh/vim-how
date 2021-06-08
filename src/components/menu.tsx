@@ -74,7 +74,7 @@ export const Menu: FC = () => {
                       <button
                         className={`${
                           isSubItem ? "text-m pl-4" : "text-xl"
-                        } text-left p-1 mb-4 whitespace-nowrap disabled:opacity-40`}
+                        } text-left p-1 mb-4 whitespace-nowrap disabled:opacity-40 disabled:cursor-default`}
                         onClick={() => setIsOpen(false)}
                         disabled={isExternal && isOffLine}
                       >
