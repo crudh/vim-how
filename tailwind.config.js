@@ -2,23 +2,8 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-  purge: {
-    content: ["./src/**/*.tsx", "./src/**/*.ts"],
-    options: {
-      safelist: [
-        "duration-200",
-        "duration-400",
-        "duration-600",
-        "duration-800",
-        "duration-1000",
-        "duration-1200",
-        "duration-1400",
-        "duration-1600",
-        "duration-1800",
-        "duration-2000",
-      ],
-    },
-  },
+  mode: "jit",
+  purge: ["./tailwind-safelist.txt", "./src/**/*.tsx", "./src/**/*.ts"],
   theme: {
     colors: {
       transparent: "transparent",
@@ -59,10 +44,6 @@ module.exports = {
       },
     },
   },
-  variants: {
-    extend: {
-      opacity: ["disabled"],
-    },
-  },
+  variants: {},
   plugins: [],
 };
