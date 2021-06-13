@@ -39,15 +39,15 @@ const CategoryPage: FC = () => {
         <title key="title">vim.how - {category.name}</title>
       </Head>
       <SearchInput value={input} onUpdate={setInput} />
-      <div className="flex flex-col items-center pt-8 pb-8">
-        <LinkButton label="Back" to="/" />
-      </div>
-      <div className="pb-8">
+      <div className="pt-8 pb-8">
         <CategoryBox category={category}>
           <h2 className="uppercase">{category.name}</h2>
         </CategoryBox>
       </div>
-      <div className="max-w-xl text-center pb-4">
+      <div className="flex flex-col items-center pb-8">
+        <LinkButton label="Back" to="/" />
+      </div>
+      <div className="max-w-xl pb-4 text-center">
         {category.descriptionLong}
       </div>
       <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 xl:w-2/5">
