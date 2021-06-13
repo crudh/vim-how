@@ -42,7 +42,7 @@ export const Menu: FC = () => {
     <>
       <div
         className={`absolute left-0 top-0 bottom-0 bg-black bg-opacity-90 overflow-hidden transition-all duration-500 ${
-          isOpen ? "w-px-300" : "w-0"
+          isOpen ? "w-px-300 border-white border-r-[1px]" : "w-0"
         }`}
       >
         <div className="absolute top-20 left-10">
