@@ -70,7 +70,7 @@ export const Menu: FC = () => {
                   )}`}
                 >
                   <li>
-                    <Link href={url}>
+                    <Link href={url} passHref>
                       <button
                         className={`${
                           isSubItem ? "text-m pl-4" : "text-xl"
