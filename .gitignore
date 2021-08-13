@@ -36,3 +36,4 @@ yarn-error.log*
 # mine
 public/sw.js
 public/workbox*.js
+public/*.map
