@@ -54,6 +54,7 @@ const securityHeaders = [
 ];
 
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   pwa: {
     disable: process.env.NODE_ENV === "development",
     dest: "public",
