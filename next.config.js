@@ -74,12 +74,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/bee.js",
-        destination: "https://cdn.splitbee.io/sb.js",
+        source: "/_an/js/script.js",
+        destination: "https://plausible.io/js/script.js",
       },
       {
-        source: "/_hive/:slug",
-        destination: "https://hive.splitbee.io/:slug",
+        source: "/_an/api/event",
+        destination: "https://plausible.io/api/event",
       },
     ];
   },
