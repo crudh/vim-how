@@ -38,10 +38,15 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
           {process.env.VERCEL_ENV === "production" ? (
-            <script async data-api="/_hive" src="/bee.js"></script>
+            <script
+              defer
+              src="/_an/js/script.js"
+              data-api="/_an/api/event"
+              data-domain="vim.how"
+            ></script>
           ) : null}
         </Head>
-        <body className="bg-black text-white font-fira">
+        <body className="text-white bg-black font-fira">
           <Main />
           <NextScript />
         </body>
