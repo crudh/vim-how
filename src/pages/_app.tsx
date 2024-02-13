@@ -1,6 +1,7 @@
 import { FC } from "react";
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import { Analytics } from "@vercel/analytics/react";
 import { Menu } from "../components/menu";
 import "../../styles/index.css";
 
@@ -23,10 +24,11 @@ const App: FC<AppProps> = ({ Component, pageProps }) => (
       <header className="p-2 pb-8">
         <h1>vim.how</h1>
       </header>
-      <main className="w-full flex flex-1 flex-col items-center">
+      <main className="flex flex-col items-center flex-1 w-full">
         <Component {...pageProps} />
       </main>
     </div>
+    <Analytics />
   </>
 );
 
