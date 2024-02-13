@@ -71,18 +71,6 @@ const nextConfig = {
       },
     ];
   },
-  async rewrites() {
-    return [
-      {
-        source: "/_an/js/script.js",
-        destination: "https://plausible.io/js/script.js",
-      },
-      {
-        source: "/_an/api/event",
-        destination: "https://plausible.io/api/event",
-      },
-    ];
-  },
 };
 
 module.exports = withBundleAnalyzer(withPWA(nextConfig));
