@@ -37,14 +37,6 @@ class MyDocument extends Document {
             as="font"
             crossOrigin="anonymous"
           />
-          {process.env.VERCEL_ENV === "production" ? (
-            <script
-              defer
-              src="/_an/js/script.js"
-              data-api="/_an/api/event"
-              data-domain="vim.how"
-            ></script>
-          ) : null}
         </Head>
         <body className="text-white bg-black font-fira">
           <Main />
